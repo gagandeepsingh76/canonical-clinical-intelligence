@@ -78,7 +78,10 @@ class PipelineEvaluatorService:
         conflict_recall = (tp_conf / len(gt_conflict_pages)) if gt_conflict_pages else 1.0
 
         # 6. FHIR Validation Pass Rate
-        fhir_pass_rate = result.fhir_validation.get("pass_rate_percentage", 100.0)
+        if isinstance(result.fhir_validation, dict):
+            fhir_pass_rate = result.fhir_validation.get("pass_rate_percentage", 100.0)
+        else:
+            fhir_pass_rate = getattr(result.fhir_validation, "pass_rate_percentage", 100.0)
 
         # 7. Run Naive Baseline
         baseline_result = NaiveBaselinePipeline.run(result.pages)

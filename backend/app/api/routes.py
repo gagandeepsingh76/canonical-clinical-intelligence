@@ -173,8 +173,24 @@ def get_fhir_validation():
 def get_evaluation(db: Session = Depends(get_db)):
     global _LATEST_RESULT
     if _LATEST_RESULT is None:
-        default_file = str(settings.BASE_DIR / "Synthetic_Medical_Record_Exercise_Whitfield 1.pdf")
-        _LATEST_RESULT = MedicalRecordPipeline.process_pdf(default_file, db=db)
+        candidate_paths = [
+            settings.BASE_DIR / "Synthetic_Medical_Record_Exercise_Whitfield 1.pdf",
+            settings.DATA_DIR / "Synthetic_Medical_Record_Exercise_Whitfield 1.pdf",
+            settings.BASE_DIR / "data" / "Synthetic_Medical_Record_Exercise_Whitfield 1.pdf",
+            Path("Synthetic_Medical_Record_Exercise_Whitfield 1.pdf"),
+            Path("data/Synthetic_Medical_Record_Exercise_Whitfield 1.pdf"),
+        ]
+        default_file = None
+        for p in candidate_paths:
+            if p.exists():
+                default_file = str(p)
+                break
+        if default_file:
+            with _PIPELINE_LOCK:
+                _LATEST_RESULT = MedicalRecordPipeline.process_pdf(default_file, db=db)
+    
+    if _LATEST_RESULT is None:
+        raise HTTPException(status_code=404, detail="No pipeline result available to evaluate. Run pipeline first.")
     
     return PipelineEvaluatorService.evaluate(_LATEST_RESULT)
 
