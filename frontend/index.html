@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canonical Clinical Intelligence Platform</title>
+  <meta name="description"
+    content="Enterprise Clinical NLP & Structuring Pipeline — HL7 FHIR R4, Terminology Normalization, Conflict Resolution & Full Provenance.">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Production API Base URL & Theme Configuration -->
+  <script>
+    // Configurable API base for split frontend (Vercel) / backend (Render) deployment
+    // Set to your deployed Render URL in production or leave empty for same-origin proxy
+    window.API_BASE_URL = window.API_BASE_URL || "";
+    (function () {
+      var saved = localStorage.getItem('app_theme') || 'light';
+      // Migrate legacy 'system'/'auto' values to 'light'
+      if (saved !== 'light' && saved !== 'dark') saved = 'light';
+      document.documentElement.setAttribute('data-theme', saved);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+  <div class="app-layout">
+
+    <!-- ====================================================================
+         LEFT SIDEBAR NAVIGATION
+         ==================================================================== -->
+    <aside class="app-sidebar">
+      <div class="sidebar-header">
+        <div class="brand-badge">
+          <div class="brand-logo-icon">
+            <svg class="icon icon-md" viewBox="0 0 24 24">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              <path d="m9 12 2 2 4-4" />
+            </svg>
+          </div>
+          <div class="brand-text">
+            <div class="brand-title">Canonical Health</div>
+            <div class="brand-subtitle">Clinical Intelligence</div>
+          </div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section-label">Core Pipeline</div>
+        <button class="nav-item active" data-tab="tab-overview">
+          <svg class="icon icon-sm" viewBox="0 0 24 24">
+            <rect width="7" height="9" x="3" y="3" rx="1" />
+            <rect width="7" height="5" x="14" y="3" rx="1" />
+            <rect width="7" height="9" x="14" y="12" rx="1" />
+            <rect width="7" height="5" x="3" y="16" rx="1" />
+          </svg>
+          <span class="nav-item-text">Executive Overview</span>
+        </button>
+        <button class="nav-item" data-tab="tab-pipeline">
+          <svg class="icon icon-sm" viewBox="0 0 24 24">
+            <rect width="8" height="8" x="3" y="3" rx="2" />
+            <path d="M7 11v4a2 2 0 0 0 2 2h4" />
+            <rect width="8" height="8" x="13" y="13" rx="2" />
+          </svg>
+          <span class="nav-item-text">Pipeline Execution</span>
+        </button>
+
+        <div class="nav-section-label">Structured Records</div>
+        <button class="nav-item" data-tab="tab-documents">
+          <svg class="icon icon-sm" viewBox="0 0 24 24">
+            <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+            <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+            <path d="M10 9H8" />
+            <path d="M16 13H8" />
+            <path d="M16 17H8" />
+          </svg>
+          <span class="nav-item-text">Document Explorer</span>
+          <span class="nav-item-badge" id="nav-doc-count">-</span>
+        </button>
+        <button class="nav-item" data-tab="tab-timeline">
+          <svg class="icon icon-sm" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" />
+            <polyline points="12 6 12 12 16 14" />
+          </svg>
+          <span class="nav-item-text">Patient Timeline</span>
+        </button>
+        <button class="nav-item" data-tab="tab-facts">
+          <svg class="icon icon-sm" viewBox="0 0 24 24">
+            <path d="m19 14 1.5-1.5a2.12 2.12 0 0 0-3-3l-1.5 1.5" />
+            <path d="m14 19 1.5-1.5a2.12 2.12 0 0 0-3-3l-1.5 1.5" />
+            <path d="M5 21v-4" />
+            <path d="M5 13V3" />
+            <path d="M5 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v18a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2" />
+          </svg>
+          <span class="nav-item-text">Clinical Facts</span>
+          <span class="nav-item-badge" id="nav-facts-count">-</span>
+        </button>
+        <button class="nav-item" data-tab="tab-conflicts">
+          <svg class="icon icon-sm" viewBox="0 0 24 24">
+            <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
+            <line x1="12" x2="12" y1="9" y2="13" />
+            <line x1="12" x2="12.01" y1="17" y2="17" />
+          </svg>
+          <span class="nav-item-text">Conflict Center</span>
+          <span class="nav-item-badge" id="nav-conflict-count"
+            style="background: rgba(220,38,38,0.2); color:#EF4444;">-</span>
+        </button>
+        <button class="nav-item" data-tab="tab-review">
+          <svg class="icon icon-sm" viewBox="0 0 24 24">
+            <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+            <path d="m9 14 2 2 4-4" />
+          </svg>
+          <span class="nav-item-text">Review Queue</span>
+          <span class="nav-item-badge" id="nav-review-count"
+            style="background: rgba(217,119,6,0.2); color:#FBBF24;">-</span>
+        </button>
+
+        <div class="nav-section-label">Interoperability & Analytics</div>
+        <button class="nav-item" data-tab="tab-fhir">
+          <svg class="icon icon-sm" viewBox="0 0 24 24">
+            <polyline points="16 18 22 12 16 6" />
+            <polyline points="8 6 2 12 8 18" />
+          </svg>
+          <span class="nav-item-text">FHIR R4 Explorer</span>
+        </button>
+        <button class="nav-item" data-tab="tab-queries">
+          <svg class="icon icon-sm" viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.3-4.3" />
+          </svg>
+          <span class="nav-item-text">Query Console</span>
+        </button>
+        <button class="nav-item" data-tab="tab-evaluation">
+          <svg class="icon icon-sm" viewBox="0 0 24 24">
+            <path d="M3 3v18h18" />
+            <path d="m19 9-5 5-4-4-3 3" />
+          </svg>
+          <span class="nav-item-text">Evaluation & Benchmarks</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="system-status-indicator">
+          <span class="status-dot"></span>
+          <span>SQLite Engine Online • v1.0.0</span>
+        </div>
+
+        <div class="sidebar-footer-divider" aria-hidden="true"></div>
+
+        <div class="theme-switcher-label">Display</div>
+        <div class="theme-toggle-group" role="group" aria-label="Theme">
+          <button class="theme-btn" id="theme-light-btn" aria-label="Light theme" aria-pressed="false"
+            onclick="setTheme('light')">
+            <svg class="icon icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2" />
+              <path d="M12 20v2" />
+              <path d="m4.93 4.93 1.41 1.41" />
+              <path d="m17.66 17.66 1.41 1.41" />
+              <path d="M2 12h2" />
+              <path d="M20 12h2" />
+              <path d="m6.34 17.66-1.41 1.41" />
+              <path d="m19.07 4.93-1.41 1.41" />
+            </svg>
+            <span>Light</span>
+          </button>
+          <button class="theme-btn" id="theme-dark-btn" aria-label="Dark theme" aria-pressed="false"
+            onclick="setTheme('dark')">
+            <svg class="icon icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+            </svg>
+            <span>Dark</span>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ====================================================================
+         MAIN APPLICATION AREA
+         ==================================================================== -->
+    <div class="app-main">
+
+      <!-- TOP APP HEADER BAR -->
+      <header class="top-header">
+
+        <!-- ZONE 1: PAGE TITLE (LEFT) -->
+        <div class="header-zone-left">
+          <h1 class="header-title" id="page-header-title">Executive Intelligence Overview</h1>
+          <p class="header-subtitle" id="page-header-subtitle">Transforming unstructured multi-document medical PDFs
+            into validated HL7 FHIR R4 resources</p>
+        </div>
+
+        <!-- ZONE 2: DATASET SELECTOR (CENTER, FLEX-GROW) -->
+        <div class="header-zone-center">
+          <div class="header-dataset-selector" id="header-dataset-wrapper">
+            <svg class="icon icon-sm header-dataset-icon" viewBox="0 0 24 24">
+              <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+              <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+            </svg>
+            <div class="header-dataset-text">
+              <span class="header-dataset-label">DATASET</span>
+              <span class="header-dataset-name" id="header-dataset-display"></span>
+            </div>
+            <select id="dataset-selector" class="header-dataset-select" onchange="handleDatasetChange(this.value)"
+              title="Switch demonstration dataset">
+              <option value="whitfield">Whitfield Assessment (22 Pages)</option>
+              <option value="compliance">30+ Page Compliance Dataset (32 Pages)</option>
+              <option value="custom">Upload Custom PDF File</option>
+            </select>
+            <svg class="icon icon-xs header-dataset-chevron" viewBox="0 0 24 24">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- ZONE 3: ACTIONS (RIGHT) -->
+        <div class="header-zone-right">
+
+          <!-- Patient Record Context Badge -->
+          <div class="header-patient-ctx" id="patient-header-pill" title="Loaded Patient Medical Record">
+            <svg class="icon icon-sm" viewBox="0 0 24 24">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+              <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+              <line x1="16" y1="13" x2="8" y2="13" />
+              <line x1="16" y1="17" x2="8" y2="17" />
+            </svg>
+            <div class="header-patient-text">
+              <span class="header-patient-label">RECORD</span>
+              <span class="header-patient-name" id="header-patient-name">—</span>
+            </div>
+          </div>
+
+          <!-- Divider -->
+          <div class="header-divider" aria-hidden="true"></div>
+
+          <!-- Process Record Button -->
+          <button id="main-process-btn" class="btn btn-primary header-process-btn" onclick="triggerPipeline()">
+            <svg class="icon icon-sm" id="process-btn-icon" viewBox="0 0 24 24">
+              <polygon points="6 3 20 12 6 21 6 3" />
+            </svg>
+            <span id="process-btn-label">Process Record</span>
+          </button>
+
+          <!-- API Status -->
+          <a href="/docs" target="_blank" class="header-api-status" title="Open FastAPI Swagger UI">
+            <span class="header-api-dot"></span>
+            <div class="header-api-text">
+              <span class="header-api-label">API</span>
+              <span class="header-api-value">Online</span>
+            </div>
+          </a>
+
+          <!-- Divider -->
+          <div class="header-divider" aria-hidden="true"></div>
+
+          <!-- UNIFIED PROFILE & CLINICAL ACCOUNT CONTROL -->
+          <div class="header-profile-wrapper" id="header-profile-wrapper" style="z-index:1000;">
+            <button class="header-profile-btn" id="user-profile-btn" aria-haspopup="true" aria-expanded="false"
+              aria-controls="profile-dropdown-menu" aria-label="User profile and clinical account menu"
+              onclick="toggleProfileDropdown(event)">
+              <div class="profile-avatar-pill" id="profile-avatar-pill">
+                <svg class="icon icon-xs" viewBox="0 0 24 24">
+                  <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+              </div>
+              <div class="profile-meta-text">
+                <span class="profile-display-name" id="profile-display-name">Dr. Sarah Jenkins</span>
+                <span class="profile-display-role" id="profile-display-role">Lead Reviewer</span>
+              </div>
+              <svg class="icon icon-xs profile-chevron" id="profile-chevron" viewBox="0 0 24 24">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+
+            <!-- Dropdown Popover Menu -->
+            <div class="profile-dropdown-menu" id="profile-dropdown-menu" role="menu" aria-labelledby="user-profile-btn"
+              aria-hidden="true" onclick="event.stopPropagation()">
+
+              <div class="profile-dropdown-header">
+                <div class="profile-dropdown-user">
+                  <div class="profile-dropdown-avatar" id="profile-dropdown-avatar">SJ</div>
+                  <div class="profile-dropdown-details">
+                    <div class="profile-dropdown-name" id="profile-dropdown-name">Dr. Sarah Jenkins, MD</div>
+                    <div class="profile-dropdown-email" id="profile-dropdown-email">s.jenkins@canonicalhealth.org</div>
+                  </div>
+                </div>
+                <div class="profile-dropdown-tags">
+                  <span class="badge badge-emerald" id="profile-status-badge">Active Reviewer</span>
+                  <span class="badge badge-navy">Enterprise Tier</span>
+                </div>
+              </div>
+
+              <div class="profile-dropdown-divider"></div>
+
+              <div class="profile-dropdown-section">
+                <div class="profile-dropdown-section-title">Clinical Role & Persona</div>
+                <button class="profile-menu-item active" id="persona-btn-reviewer" role="menuitem" type="button"
+                  onclick="selectPersona('Lead Reviewer', 'Dr. Sarah Jenkins', 'SJ', 's.jenkins@canonicalhealth.org')">
+                  <div class="profile-menu-item-icon">
+                    <svg class="icon icon-sm" viewBox="0 0 24 24">
+                      <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+                      <circle cx="12" cy="7" r="4" />
+                    </svg>
+                  </div>
+                  <div class="profile-item-text">
+                    <span class="profile-item-label">Lead Medical Reviewer (Default)</span>
+                    <span class="profile-item-sub">Full clinical dossier curation & sign-off</span>
+                  </div>
+                  <svg class="icon icon-xs profile-check-icon" viewBox="0 0 24 24">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </button>
+                <button class="profile-menu-item" id="persona-btn-coder" role="menuitem" type="button"
+                  onclick="selectPersona('HIM Coder', 'Marcus Vance, RHIA', 'MV', 'm.vance@canonicalhealth.org')">
+                  <div class="profile-menu-item-icon">
+                    <svg class="icon icon-sm" viewBox="0 0 24 24">
+                      <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+                      <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+                    </svg>
+                  </div>
+                  <div class="profile-item-text">
+                    <span class="profile-item-label">HIM Terminology Specialist</span>
+                    <span class="profile-item-sub">ICD-10-CM, CPT, RxNorm, LOINC mapping</span>
+                  </div>
+                  <svg class="icon icon-xs profile-check-icon" viewBox="0 0 24 24">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </button>
+                <button class="profile-menu-item" id="persona-btn-fhir" role="menuitem" type="button"
+                  onclick="selectPersona('FHIR Architect', 'Alex Chen, MS', 'AC', 'a.chen@canonicalhealth.org')">
+                  <div class="profile-menu-item-icon">
+                    <svg class="icon icon-sm" viewBox="0 0 24 24">
+                      <polyline points="16 18 22 12 16 6" />
+                      <polyline points="8 6 2 12 8 18" />
+                    </svg>
+                  </div>
+                  <div class="profile-item-text">
+                    <span class="profile-item-label">FHIR Integration Engineer</span>
+                    <span class="profile-item-sub">R4 bundle synthesis & schema validation</span>
+                  </div>
+                  <svg class="icon icon-xs profile-check-icon" viewBox="0 0 24 24">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </button>
+              </div>
+
+              <div class="profile-dropdown-divider"></div>
+
+              <div class="profile-dropdown-section">
+                <div class="profile-dropdown-section-title">Session & Diagnostic Info</div>
+                <button class="profile-menu-item" role="menuitem" type="button" onclick="showSystemAuditInfo()">
+                  <div class="profile-menu-item-icon">
+                    <svg class="icon icon-sm" viewBox="0 0 24 24">
+                      <rect width="18" height="18" x="3" y="3" rx="2" />
+                      <path d="M3 9h18" />
+                      <path d="M9 21V9" />
+                    </svg>
+                  </div>
+                  <div class="profile-item-text">
+                    <span class="profile-item-label">System Architecture & Audit</span>
+                    <span class="profile-item-sub">FastAPI • SQLite • HL7 FHIR R4 Core</span>
+                  </div>
+                </button>
+                <button class="profile-menu-item" role="menuitem" type="button" onclick="resetLocalSessionPreferences()">
+                  <div class="profile-menu-item-icon">
+                    <svg class="icon icon-sm" viewBox="0 0 24 24">
+                      <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+                      <path d="M3 3v5h5" />
+                    </svg>
+                  </div>
+                  <div class="profile-item-text">
+                    <span class="profile-item-label">Reset Local Session State</span>
+                    <span class="profile-item-sub">Restore defaults & clear local cache</span>
+                  </div>
+                </button>
+              </div>
+
+              <div class="profile-dropdown-divider"></div>
+
+              <div class="profile-dropdown-footer">
+                <button class="profile-action-btn" type="button" role="menuitem" onclick="handleSessionSignOut()">
+                  <svg class="icon icon-sm" viewBox="0 0 24 24">
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                    <polyline points="16 17 21 12 16 7" />
+                    <line x1="21" x2="9" y1="12" y2="12" />
+                  </svg>
+                  <span>Reset Demo Session Context</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </header>
+
+      <!-- SCROLLABLE CONTENT BODY -->
+      <div class="content-body">
+
+        <!-- ====================================================================
+             TAB 1: OVERVIEW & LANDING HERO
+             ==================================================================== -->
+        <section id="tab-overview" class="tab-content-panel active">
+
+          <!-- Landing Upload Experience (Shown before record is loaded) -->
+          <div class="upload-container" id="landing-hero-block">
+            <div style="text-align: center; margin-bottom: var(--space-6);">
+              <div class="badge badge-orange" style="margin-bottom: var(--space-3);">Enterprise Healthcare AI Pipeline
+              </div>
+              <h1
+                style="font-size: var(--text-2xl); font-weight: 800; color: var(--text-primary); letter-spacing: -0.02em; margin-bottom: var(--space-2);">
+                From fragmented clinical records to structured intelligence.
+              </h1>
+              <p style="font-size: var(--text-sm); color: var(--text-secondary); max-width: 620px; margin: 0 auto;">
+                Segment multi-document medical PDFs, extract clinical entities, resolve identity discrepancies,
+                normalize terminology (ICD-10, RxNorm, LOINC, CPT), and emit validated HL7 FHIR R4 resources with 100%
+                field-level provenance.
+              </p>
+            </div>
+
+            <!-- Upload State 1 & 2: Dropzone & File Card -->
+            <div class="upload-dropzone" id="upload-dropzone"
+              onclick="document.getElementById('file-upload-input').click()">
+              <input type="file" id="file-upload-input" accept="application/pdf" style="display:none;"
+                onchange="handleFileUpload(this.files[0])">
+
+              <div class="upload-icon-circle">
+                <svg class="icon icon-xl" viewBox="0 0 24 24">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <polyline points="17 8 12 3 7 8" />
+                  <line x1="12" x2="12" y1="3" y2="15" />
+                </svg>
+              </div>
+              <div class="upload-main-title">Drag and drop medical PDF here, or click to browse</div>
+              <div class="upload-sub-desc">Supported format: PDF • Maximum file size: 50 MB</div>
+
+              <button class="btn btn-primary"
+                onclick="event.stopPropagation(); document.getElementById('file-upload-input').click()">
+                <svg class="icon icon-sm" viewBox="0 0 24 24">
+                  <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+                  <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+                </svg>
+                <span>Choose Medical PDF</span>
+              </button>
+
+              <div
+                style="display:flex; align-items:center; justify-content:center; gap:var(--space-3); flex-wrap:wrap; margin-top:var(--space-6); padding-top:var(--space-4); border-top:1px solid var(--border-subtle);"
+                onclick="event.stopPropagation();">
+                <span style="font-size:var(--text-xs); color:var(--text-muted); font-weight:600;">Demonstration
+                  Datasets:</span>
+                <button class="btn btn-secondary btn-sm" onclick="loadDataset('whitfield')">
+                  <svg class="icon icon-xs" viewBox="0 0 24 24">
+                    <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+                    <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+                  </svg>
+                  <span>Primary Whitfield (22 Pages)</span>
+                </button>
+                <button class="btn btn-secondary btn-sm" onclick="loadDataset('compliance')">
+                  <svg class="icon icon-xs" viewBox="0 0 24 24">
+                    <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+                    <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+                  </svg>
+                  <span>Compliance Record (32 Pages)</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Upload State 2: Selected File Card -->
+            <div id="file-loaded-state-card" class="file-loaded-card" style="display: none;">
+              <div class="file-info-group">
+                <div class="file-icon-box">
+                  <svg class="icon icon-lg" viewBox="0 0 24 24">
+                    <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+                    <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="file-details-title" id="loaded-file-name">Synthetic_Medical_Record_Exercise_Whitfield.pdf
+                  </div>
+                  <div class="file-details-meta" id="loaded-file-meta">22 Pages • Ready to Process</div>
+                </div>
+              </div>
+              <div style="display: flex; gap: var(--space-2);">
+                <button class="btn btn-secondary btn-sm"
+                  onclick="document.getElementById('file-upload-input').click()">Replace</button>
+                <button class="btn btn-ghost btn-sm" onclick="resetUploadedFile()">Remove</button>
+              </div>
+            </div>
+
+            <!-- Upload State 3: Uploading Indicator -->
+            <div id="file-uploading-progress"
+              style="display: none; padding: var(--space-4); background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); margin-top: var(--space-4);">
+              <div
+                style="display:flex; justify-content:space-between; font-size:var(--text-xs); font-weight:600; color:var(--text-secondary);">
+                <span>Uploading medical record PDF...</span>
+                <span>Processing Stream</span>
+              </div>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar-fill"></div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Executive Intelligence Dashboard (Shown post-processing) -->
+          <div id="overview-dashboard-block" style="display: none;">
+
+            <!-- Hero Patient Summary Card -->
+            <div class="card" style="border-left: 4px solid var(--accent-orange);">
+              <div
+                style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: var(--space-4);">
+                <div>
+                  <div
+                    style="font-size: var(--text-xs); font-weight: 700; color: var(--accent-orange); text-transform: uppercase; letter-spacing: 0.05em;">
+                    Canonical Patient Profile Corroborated</div>
+                  <div
+                    style="font-size: var(--text-2xl); font-weight: 800; color: var(--text-primary); margin-top: 2px;"
+                    id="overview-patient-fullname">-</div>
+                  <div style="display: flex; gap: var(--space-2); flex-wrap: wrap; margin-top: var(--space-2);">
+                    <span class="badge badge-purple" id="overview-dob">DOB: -</span>
+                    <span class="badge badge-blue" id="overview-mrn">MRN: -</span>
+                    <span class="badge badge-emerald" id="overview-gender">Sex: -</span>
+                    <span class="badge badge-gray" id="overview-employer">Employer: -</span>
+                  </div>
+                </div>
+                <div style="display: flex; gap: var(--space-2); align-items: center;">
+                  <span class="badge badge-emerald" style="padding: 4px 10px; font-size: var(--text-sm);"
+                    id="overview-fhir-val-badge">
+                    <svg class="icon icon-xs" viewBox="0 0 24 24">
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                      <polyline points="22 4 12 14.01 9 11.01" />
+                    </svg>
+                    <span>100% FHIR R4 Validated</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 8-Tile Executive Metrics Grid -->
+            <div class="metrics-grid-8">
+              <div class="metric-tile">
+                <div class="tile-top">
+                  <span class="tile-label">Pages Ingested</span>
+                  <svg class="icon icon-sm" viewBox="0 0 24 24">
+                    <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+                    <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+                  </svg>
+                </div>
+                <div class="tile-value" id="m-pages">-</div>
+                <div class="tile-footer">PyMuPDF Vector Layout</div>
+              </div>
+
+              <div class="metric-tile">
+                <div class="tile-top">
+                  <span class="tile-label">Sub-Documents</span>
+                  <svg class="icon icon-sm" viewBox="0 0 24 24">
+                    <path d="M16 2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Z" />
+                    <polyline points="8 2 8 6 12 6" />
+                    <polyline points="16 18 20 18 20 8 16 8" />
+                  </svg>
+                </div>
+                <div class="tile-value" id="m-docs">-</div>
+                <div class="tile-footer">Segmented & Classified</div>
+              </div>
+
+              <div class="metric-tile">
+                <div class="tile-top">
+                  <span class="tile-label">Clinical Entities</span>
+                  <svg class="icon icon-sm" viewBox="0 0 24 24">
+                    <path d="m19 14 1.5-1.5a2.12 2.12 0 0 0-3-3l-1.5 1.5" />
+                    <path d="m14 19 1.5-1.5a2.12 2.12 0 0 0-3-3l-1.5 1.5" />
+                  </svg>
+                </div>
+                <div class="tile-value" id="m-facts">-</div>
+                <div class="tile-footer">Deduplicated Dossier</div>
+              </div>
+
+              <div class="metric-tile">
+                <div class="tile-top">
+                  <span class="tile-label">Duplicates Quarantined</span>
+                  <svg class="icon icon-sm" viewBox="0 0 24 24">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  </svg>
+                </div>
+                <div class="tile-value" id="m-duplicates">-</div>
+                <div class="tile-footer">Draft & Hash Collisions</div>
+              </div>
+
+              <div class="metric-tile">
+                <div class="tile-top">
+                  <span class="tile-label">Conflicts Handled</span>
+                  <svg class="icon icon-sm" viewBox="0 0 24 24">
+                    <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
+                  </svg>
+                </div>
+                <div class="tile-value" id="m-conflicts">-</div>
+                <div class="tile-footer">Deterministic Resolution</div>
+              </div>
+
+              <div class="metric-tile">
+                <div class="tile-top">
+                  <span class="tile-label">Review Queue</span>
+                  <svg class="icon icon-sm" viewBox="0 0 24 24">
+                    <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+                    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+                  </svg>
+                </div>
+                <div class="tile-value" id="m-review">-</div>
+                <div class="tile-footer">Human-in-the-Loop Items</div>
+              </div>
+
+              <div class="metric-tile">
+                <div class="tile-top">
+                  <span class="tile-label">FHIR Resources</span>
+                  <svg class="icon icon-sm" viewBox="0 0 24 24">
+                    <polyline points="16 18 22 12 16 6" />
+                    <polyline points="8 6 2 12 8 18" />
+                  </svg>
+                </div>
+                <div class="tile-value" id="m-fhir">-</div>
+                <div class="tile-footer">HL7 FHIR R4 Bundle</div>
+              </div>
+
+              <div class="metric-tile">
+                <div class="tile-top">
+                  <span class="tile-label">Validation Pass</span>
+                  <svg class="icon icon-sm" viewBox="0 0 24 24">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <polyline points="22 4 12 14.01 9 11.01" />
+                  </svg>
+                </div>
+                <div class="tile-value" id="m-pass-rate" style="color: var(--accent-emerald);">-</div>
+                <div class="tile-footer">Pydantic Schema Check</div>
+              </div>
+            </div>
+
+            <!-- Two Column Analytical Overview -->
+            <div
+              style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-5); margin-bottom: var(--space-6);">
+              <div class="card" style="margin-bottom: 0;">
+                <div class="card-header-banner">
+                  <div class="card-title-lg">
+                    <svg class="icon icon-md" viewBox="0 0 24 24">
+                      <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+                      <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+                    </svg>
+                    <span>Document Classification Breakdown</span>
+                  </div>
+                </div>
+                <div id="overview-doc-breakdown" style="display: flex; flex-direction: column; gap: var(--space-2);">
+                  <!-- Dynamically Populated -->
+                </div>
+              </div>
+
+              <div class="card" style="margin-bottom: 0;">
+                <div class="card-header-banner">
+                  <div class="card-title-lg">
+                    <svg class="icon icon-md" viewBox="0 0 24 24">
+                      <path d="m19 14 1.5-1.5a2.12 2.12 0 0 0-3-3l-1.5 1.5" />
+                      <path d="m14 19 1.5-1.5a2.12 2.12 0 0 0-3-3l-1.5 1.5" />
+                    </svg>
+                    <span>Clinical Entities by Domain</span>
+                  </div>
+                </div>
+                <div id="overview-entity-breakdown" style="display: flex; flex-direction: column; gap: var(--space-2);">
+                  <!-- Dynamically Populated -->
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ====================================================================
+             TAB 2: PIPELINE EXECUTION STEPPER (VISUAL STATE MACHINE)
+             ==================================================================== -->
+        <section id="tab-pipeline" class="tab-content-panel">
+          <div class="card">
+            <div class="card-header-banner">
+              <div>
+                <div class="card-title-lg">
+                  <svg class="icon icon-md" viewBox="0 0 24 24">
+                    <rect width="8" height="8" x="3" y="3" rx="2" />
+                    <path d="M7 11v4a2 2 0 0 0 2 2h4" />
+                    <rect width="8" height="8" x="13" y="13" rx="2" />
+                  </svg>
+                  <span>End-to-End Pipeline Execution Lifecycle</span>
+                </div>
+                <div class="card-subtitle-sm">Deterministic visual state machine tracking all 10 clinical structuring
+                  stages</div>
+              </div>
+              <button class="btn btn-primary btn-sm" onclick="triggerPipeline()">
+                <svg class="icon icon-xs" viewBox="0 0 24 24">
+                  <polygon points="6 3 20 12 6 21 6 3" />
+                </svg>
+                <span>Run Full Pipeline</span>
+              </button>
+            </div>
+
+            <!-- 10 Pipeline Stages in Structured Flow -->
+            <div class="pipeline-flow-container">
+              <div class="stage-card pending" id="stage-ingest">
+                <div class="stage-card-header">
+                  <span class="stage-card-num">01</span>
+                  <span class="stage-status-icon" id="stage-icon-ingest">
+                    <svg class="icon icon-sm" viewBox="0 0 24 24">
+                      <circle cx="12" cy="12" r="10" />
+                    </svg>
+                  </span>
+                </div>
+                <div class="stage-card-name">PDF Ingestion</div>
+                <div class="stage-card-desc">PyMuPDF text stream & page layout extraction</div>
+                <div class="stage-status-badge" id="stage-badge-ingest">Pending</div>
+              </div>
+
+              <div class="stage-card pending" id="stage-classify">
+                <div class="stage-card-header">
+                  <span class="stage-card-num">02</span>
+                  <span class="stage-status-icon" id="stage-icon-classify">
+                    <svg class="icon icon-sm" viewBox="0 0 24 24">
+                      <circle cx="12" cy="12" r="10" />
+                    </svg>
+                  </span>
+                </div>
+                <div class="stage-card-name">Classification</div>
+                <div class="stage-card-desc">17 clinical & administrative document types</div>
+                <div class="stage-status-badge" id="stage-badge-classify">Pending</div>
+              </div>
+
+              <div class="stage-card pending" id="stage-duplicates">
+                <div class="stage-card-header">
+                  <span class="stage-card-num">03</span>
+                  <span class="stage-status-icon" id="stage-icon-duplicates">
+                    <svg class="icon icon-sm" viewBox="0 0 24 24">
+                      <circle cx="12" cy="12" r="10" />
+                    </svg>
+                  </span>
+                </div>
+                <div class="stage-card-name">Duplicate Quarantine</div>
+                <div class="stage-card-desc">Exact hash & draft revision collision filtering</div>
+                <div class="stage-status-badge" id="stage-badge-duplicates">Pending</div>
+              </div>
+
+              <div class="stage-card pending" id="stage-segment">
+                <div class="stage-card-header">
+                  <span class="stage-card-num">04</span>
+                  <span class="stage-status-icon" id="stage-icon-segment">
+                    <svg class="icon icon-sm" viewBox="0 0 24 24">
+                      <circle cx="12" cy="12" r="10" />
+                    </svg>
+                  </span>
+                </div>
+                <div class="stage-card-name">Segmentation</div>
+                <div class="stage-card-desc">Logical boundary detection & continuous joining</div>
+                <div class="stage-status-badge" id="stage-badge-segment">Pending</div>
+              </div>
+
+              <div class="stage-card pending" id="stage-extract">
+                <div class="stage-card-header">
+                  <span class="stage-card-num">05</span>
+                  <span class="stage-status-icon" id="stage-icon-extract">
+                    <svg class="icon icon-sm" viewBox="0 0 24 24">
+                      <circle cx="12" cy="12" r="10" />
+                    </svg>
+                  </span>
+                </div>
+                <div class="stage-card-name">Clinical Extraction</div>
+                <div class="stage-card-desc">Consensus voting & field-level character offsets</div>
+                <div class="stage-status-badge" id="stage-badge-extract">Pending</div>
+              </div>
+
+              <div class="stage-card pending" id="stage-normalize">
+                <div class="stage-card-header">
+                  <span class="stage-card-num">06</span>
+                  <span class="stage-status-icon" id="stage-icon-normalize">
+                    <svg class="icon icon-sm" viewBox="0 0 24 24">
+                      <circle cx="12" cy="12" r="10" />
+                    </svg>
+                  </span>
+                </div>
+                <div class="stage-card-name">Normalization</div>
+                <div class="stage-card-desc">ICD-10-CM, RxNorm, LOINC, CPT, and UCUM mapping</div>
+                <div class="stage-status-badge" id="stage-badge-normalize">Pending</div>
+              </div>
+
+              <div class="stage-card pending" id="stage-conflicts">
+                <div class="stage-card-header">
+                  <span class="stage-card-num">07</span>
+                  <span class="stage-status-icon" id="stage-icon-conflicts">
+                    <svg class="icon icon-sm" viewBox="0 0 24 24">
+                      <circle cx="12" cy="12" r="10" />
+                    </svg>
+                  </span>
+                </div>
+                <div class="stage-card-name">Conflict Resolution</div>
+                <div class="stage-card-desc">Demographic clustering & deterministic policies</div>
+                <div class="stage-status-badge" id="stage-badge-conflicts">Pending</div>
+              </div>
+
+              <div class="stage-card pending" id="stage-fhir">
+                <div class="stage-card-header">
+                  <span class="stage-card-num">08</span>
+                  <span class="stage-status-icon" id="stage-icon-fhir">
+                    <svg class="icon icon-sm" viewBox="0 0 24 24">
+                      <circle cx="12" cy="12" r="10" />
+                    </svg>
+                  </span>
+                </div>
+                <div class="stage-card-name">FHIR R4 Generation</div>
+                <div class="stage-card-desc">HL7 FHIR Bundle synthesis & clinical cross-linking</div>
+                <div class="stage-status-badge" id="stage-badge-fhir">Pending</div>
+              </div>
+
+              <div class="stage-card pending" id="stage-validate">
+                <div class="stage-card-header">
+                  <span class="stage-card-num">09</span>
+                  <span class="stage-status-icon" id="stage-icon-validate">
+                    <svg class="icon icon-sm" viewBox="0 0 24 24">
+                      <circle cx="12" cy="12" r="10" />
+                    </svg>
+                  </span>
+                </div>
+                <div class="stage-card-name">Validation</div>
+                <div class="stage-card-desc">Official Pydantic schema validation check</div>
+                <div class="stage-status-badge" id="stage-badge-validate">Pending</div>
+              </div>
+
+              <div class="stage-card pending" id="stage-db">
+                <div class="stage-card-header">
+                  <span class="stage-card-num">10</span>
+                  <span class="stage-status-icon" id="stage-icon-db">
+                    <svg class="icon icon-sm" viewBox="0 0 24 24">
+                      <circle cx="12" cy="12" r="10" />
+                    </svg>
+                  </span>
+                </div>
+                <div class="stage-card-name">Persistence</div>
+                <div class="stage-card-desc">Idempotent SQLite transaction commitment</div>
+                <div class="stage-status-badge" id="stage-badge-db">Pending</div>
+              </div>
+            </div>
+
+            <div
+              style="margin-top: var(--space-5); padding: var(--space-4); background-color: var(--bg-surface-subtle); border-radius: var(--radius-md); font-family: var(--font-mono); font-size: var(--text-xs);"
+              id="pipeline-live-log">
+              System ready. Select a medical record dataset and click "Run Full Pipeline".
+            </div>
+          </div>
+        </section>
+
+        <!-- ====================================================================
+             TAB 3: DOCUMENT EXPLORER (MASTER-DETAIL)
+             ==================================================================== -->
+        <section id="tab-documents" class="tab-content-panel">
+          <div class="master-detail-grid">
+
+            <!-- Left: Document List -->
+            <div class="master-list-panel">
+              <div class="master-list-header">
+                <span>Logical Sub-Documents</span>
+                <span class="badge badge-navy" id="doc-count-badge">0 Docs</span>
+              </div>
+              <div class="master-list-scroll" id="doc-master-list">
+                <!-- Dynamically Populated -->
+              </div>
+            </div>
+
+            <!-- Right: Document Detail View -->
+            <div class="detail-view-panel" id="doc-detail-view">
+              <div
+                style="display: flex; align-items: center; justify-content: center; height: 100%; color: var(--text-muted); font-size: var(--text-sm);">
+                Select a document from the list to inspect extracted metadata and raw text.
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ====================================================================
+             TAB 4: PATIENT TIMELINE
+             ==================================================================== -->
+        <section id="tab-timeline" class="tab-content-panel">
+          <div class="card">
+            <div class="card-header-banner">
+              <div>
+                <div class="card-title-lg">
+                  <svg class="icon icon-md" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                  </svg>
+                  <span>Longitudinal Patient Clinical Journey</span>
+                </div>
+                <div class="card-subtitle-sm">Chronological progression of trauma encounters, diagnostic imaging,
+                  interventional procedures, surgery, and rehabilitation</div>
+              </div>
+            </div>
+
+            <div class="clinical-timeline" id="timeline-container">
+              <!-- Dynamically Populated -->
+            </div>
+          </div>
+        </section>
+
+        <!-- ====================================================================
+             TAB 5: CLINICAL FACTS
+             ==================================================================== -->
+        <section id="tab-facts" class="tab-content-panel">
+          <div class="card">
+
+            <div
+              style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-4); flex-wrap: wrap; gap: var(--space-3);">
+              <div style="display: flex; gap: var(--space-2); flex-wrap: wrap;" id="facts-subnav">
+                <button class="btn btn-secondary btn-sm active" onclick="switchFactsTab('conditions', this)">Conditions
+                  (ICD-10)</button>
+                <button class="btn btn-secondary btn-sm" onclick="switchFactsTab('meds', this)">Medications
+                  (RxNorm)</button>
+                <button class="btn btn-secondary btn-sm" onclick="switchFactsTab('obs', this)">Vitals & Exams
+                  (LOINC)</button>
+                <button class="btn btn-secondary btn-sm" onclick="switchFactsTab('procs', this)">Procedures
+                  (CPT)</button>
+                <button class="btn btn-secondary btn-sm" onclick="switchFactsTab('allergies', this)">Allergies</button>
+              </div>
+
+              <div>
+                <input type="text" id="facts-search-input" placeholder="Search clinical facts..."
+                  style="padding: 5px 10px; border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); font-family: inherit; font-size: var(--text-xs); background: var(--bg-surface-subtle); color: var(--text-primary);"
+                  oninput="filterFactsTable(this.value)">
+              </div>
+            </div>
+
+            <!-- Conditions Table -->
+            <div id="facts-table-conditions" class="table-responsive facts-table-section">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Condition / Diagnosis</th>
+                    <th>Normalized ICD-10-CM</th>
+                    <th>Clinical Status</th>
+                    <th>Onset Date</th>
+                    <th>Historical</th>
+                    <th>Confidence</th>
+                    <th>Provenance Source</th>
+                  </tr>
+                </thead>
+                <tbody id="conditions-table-body"></tbody>
+              </table>
+            </div>
+
+            <!-- Medications Table -->
+            <div id="facts-table-meds" class="table-responsive facts-table-section" style="display: none;">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Medication Name</th>
+                    <th>Dose & Route</th>
+                    <th>Frequency</th>
+                    <th>RxNorm Concept</th>
+                    <th>Status</th>
+                    <th>Adverse Reactions</th>
+                    <th>Provenance</th>
+                  </tr>
+                </thead>
+                <tbody id="meds-table-body"></tbody>
+              </table>
+            </div>
+
+            <!-- Observations Table -->
+            <div id="facts-table-obs" class="table-responsive facts-table-section" style="display: none;">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Measurement / Exam</th>
+                    <th>Clinical Value</th>
+                    <th>Reference Range</th>
+                    <th>Interpretation</th>
+                    <th>LOINC Coding</th>
+                    <th>Service Date</th>
+                    <th>Provenance</th>
+                  </tr>
+                </thead>
+                <tbody id="obs-table-body"></tbody>
+              </table>
+            </div>
+
+            <!-- Procedures Table -->
+            <div id="facts-table-procs" class="table-responsive facts-table-section" style="display: none;">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Procedure / Intervention</th>
+                    <th>CPT Code</th>
+                    <th>Performed Date</th>
+                    <th>Attending Performer</th>
+                    <th>Findings & Operative Summary</th>
+                    <th>Provenance</th>
+                  </tr>
+                </thead>
+                <tbody id="procs-table-body"></tbody>
+              </table>
+            </div>
+
+            <!-- Allergies Table -->
+            <div id="facts-table-allergies" class="table-responsive facts-table-section" style="display: none;">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Allergen Substance</th>
+                    <th>Status</th>
+                    <th>Documented Reaction</th>
+                    <th>Recorded Date</th>
+                    <th>Provenance</th>
+                  </tr>
+                </thead>
+                <tbody id="allergies-table-body"></tbody>
+              </table>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ====================================================================
+             TAB 6: CONFLICT CENTER
+             ==================================================================== -->
+        <section id="tab-conflicts" class="tab-content-panel">
+          <div class="card">
+            <div class="card-header-banner">
+              <div>
+                <div class="card-title-lg">
+                  <svg class="icon icon-md" viewBox="0 0 24 24">
+                    <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
+                    <line x1="12" x2="12" y1="9" y2="13" />
+                    <line x1="12" x2="12.01" y1="17" y2="17" />
+                  </svg>
+                  <span>Clinical Conflict Resolution Center</span>
+                </div>
+                <div class="card-subtitle-sm">Discrepancy detection across patient demographics, clinical lateralities,
+                  and duplicate drafts</div>
+              </div>
+            </div>
+
+            <div id="conflicts-container">
+              <!-- Dynamically Populated -->
+            </div>
+          </div>
+        </section>
+
+        <!-- ====================================================================
+             TAB 7: REVIEW QUEUE
+             ==================================================================== -->
+        <section id="tab-review" class="tab-content-panel">
+          <div class="card">
+            <div class="card-header-banner">
+              <div>
+                <div class="card-title-lg">
+                  <svg class="icon icon-md" viewBox="0 0 24 24">
+                    <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+                    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+                    <path d="m9 14 2 2 4-4" />
+                  </svg>
+                  <span>Human-in-the-Loop Clinical Review Queue</span>
+                </div>
+                <div class="card-subtitle-sm">Quarantined records, low-confidence terminology mappings, and identity
+                  mismatches</div>
+              </div>
+            </div>
+
+            <div id="review-queue-container">
+              <!-- Dynamically Populated -->
+            </div>
+          </div>
+        </section>
+
+        <!-- ====================================================================
+             TAB 8: FHIR R4 EXPLORER
+             ==================================================================== -->
+        <section id="tab-fhir" class="tab-content-panel">
+          <div class="card">
+            <div class="card-header-banner">
+              <div>
+                <div class="card-title-lg">
+                  <svg class="icon icon-md" viewBox="0 0 24 24">
+                    <polyline points="16 18 22 12 16 6" />
+                    <polyline points="8 6 2 12 8 18" />
+                  </svg>
+                  <span>HL7 FHIR R4 Bundle Explorer</span>
+                </div>
+                <div class="card-subtitle-sm">Interoperability bundle validated with official Pydantic fhir.resources
+                  schemas</div>
+              </div>
+              <div style="display: flex; gap: var(--space-2);">
+                <button class="btn btn-secondary btn-sm" id="copy-fhir-btn" onclick="copyFHIR()">
+                  <svg class="icon icon-xs" viewBox="0 0 24 24">
+                    <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+                    <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+                  </svg>
+                  <span>Copy JSON</span>
+                </button>
+                <button class="btn btn-secondary btn-sm" onclick="downloadFHIR()">
+                  <svg class="icon icon-xs" viewBox="0 0 24 24">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <polyline points="7 10 12 15 17 10" />
+                    <line x1="12" x2="12" y1="15" y2="3" />
+                  </svg>
+                  <span>Download Bundle</span>
+                </button>
+              </div>
+            </div>
+
+            <pre class="code-block"
+              id="fhir-json-code">{ "status": "FHIR Bundle pending. Process a medical record to emit validated resources." }</pre>
+          </div>
+        </section>
+
+        <!-- ====================================================================
+             TAB 9: CLINICAL QUERY CONSOLE
+             ==================================================================== -->
+        <section id="tab-queries" class="tab-content-panel">
+          <div class="card">
+            <div class="card-header-banner">
+              <div>
+                <div class="card-title-lg">
+                  <svg class="icon icon-md" viewBox="0 0 24 24">
+                    <circle cx="11" cy="11" r="8" />
+                    <path d="m21 21-4.3-4.3" />
+                  </svg>
+                  <span>Clinical Query Engine (SQLite Store)</span>
+                </div>
+                <div class="card-subtitle-sm">Execute structured clinical inquiries directly against the normalized
+                  database</div>
+              </div>
+            </div>
+
+            <div class="query-command-grid">
+              <div class="query-command-btn" onclick="executeQuery('timeline')">
+                <div class="query-cmd-title">1. Complete Patient Timeline</div>
+                <div class="query-cmd-desc">Chronological sequence of all encounters, surgeries, and therapy</div>
+              </div>
+              <div class="query-command-btn" onclick="executeQuery('diagnoses')">
+                <div class="query-cmd-title">2. Diagnoses with Source Pages</div>
+                <div class="query-cmd-desc">All conditions with ICD-10 codes and page provenance</div>
+              </div>
+              <div class="query-command-btn" onclick="executeQuery('medications')">
+                <div class="query-cmd-title">3. Medication History</div>
+                <div class="query-cmd-desc">Active vs discontinued drugs, doses, and adverse notes</div>
+              </div>
+              <div class="query-command-btn" onclick="executeQuery('abnormal_observations')">
+                <div class="query-cmd-title">4. Abnormal Observations</div>
+                <div class="query-cmd-desc">Pain scores, motor strength deficits (EHL 4/5), and positive SLR</div>
+              </div>
+              <div class="query-command-btn" onclick="executeQuery('lumbar_radiculopathy')">
+                <div class="query-cmd-title">5. Lumbar / L4-L5 Dossier</div>
+                <div class="query-cmd-desc">Complete dossier of conditions, MRI findings, and surgical notes</div>
+              </div>
+              <div class="query-command-btn" onclick="executeQuery('conflicts')">
+                <div class="query-cmd-title">6. Conflicts Requiring Review</div>
+                <div class="query-cmd-desc">Identity mismatches and EMG diagnostic laterality questions</div>
+              </div>
+              <div class="query-command-btn" onclick="executeQuery('page_info', '15')">
+                <div class="query-cmd-title">7. Page 15 Operative Details</div>
+                <div class="query-cmd-desc">Reverse lookup of all facts extracted from source Page 15</div>
+              </div>
+              <div class="query-command-btn" onclick="executeQuery('procedures')">
+                <div class="query-cmd-title">8. Procedure History</div>
+                <div class="query-cmd-desc">All CPT-coded surgical and interventional procedures</div>
+              </div>
+              <div class="query-command-btn" onclick="executeQuery('pain_progression')">
+                <div class="query-cmd-title">9. Pain Score Progression</div>
+                <div class="query-cmd-desc">Pain ratings tracking from 8/10 at ED down to 0/10 post-op</div>
+              </div>
+            </div>
+
+            <div id="query-results-area">
+              <div
+                style="background: var(--bg-surface-subtle); border: 1px dashed var(--border-strong); border-radius: var(--radius-md); padding: var(--space-8); text-align: center; color: var(--text-muted); font-size: var(--text-sm);">
+                Select any query command above to execute a live relational database query.
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ====================================================================
+             TAB 10: EVALUATION & BENCHMARKS
+             ==================================================================== -->
+        <section id="tab-evaluation" class="tab-content-panel">
+          <div id="eval-container">
+            <!-- Dynamically Populated -->
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ====================================================================
+       PROVENANCE AUDIT DRAWER / MODAL
+       ==================================================================== -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title" id="modal-title">Provenance Audit Trail</div>
+        <button class="modal-close-btn" id="modal-close" onclick="closeModal()">
+          <svg class="icon icon-sm" viewBox="0 0 24 24">
+            <line x1="18" x2="6" y1="6" y2="18" />
+            <line x1="6" x2="18" y1="6" y2="18" />
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body" id="modal-body">
+        <!-- Dynamically Populated -->
+      </div>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+
+</html>
