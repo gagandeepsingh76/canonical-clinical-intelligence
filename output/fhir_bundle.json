@@ -1,0 +1,2339 @@
+{
+  "resourceType": "Bundle",
+  "id": "bundle-e67a8e92",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:pat-001",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "pat-001",
+        "identifier": [
+          {
+            "system": "http://hospital.org/mrn",
+            "value": "PCG-4471902"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Whitfield",
+            "given": [
+              "Marcus"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1987-03-14"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:enc-001",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-001",
+        "status": "completed",
+        "class": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "AMB",
+                "display": "ambulatory"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "serviceProvider": {
+          "display": "2025\nSYNTHETIC TRAINING RECORD - FICTIONAL PATIENT, PROVIDERS AND FACILITIES - FOR INTERVIEW ASSESSMENT USE ONLY\nLTM-PI-00001\nPIEDMONT COUNTY EMERGENCY MEDICAL SERVICES\nPrehospital"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:enc-002",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-002",
+        "status": "completed",
+        "class": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "AMB",
+                "display": "ambulatory"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "serviceProvider": {
+          "display": "2025\nSYNTHETIC TRAINING RECORD - FICTIONAL PATIENT, PROVIDERS AND FACILITIES - FOR INTERVIEW ASSESSMENT USE ONLY\nLTM-PI-00002\nPIEDMONT COUNTY GENERAL HOSPITAL"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:enc-003",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-003",
+        "status": "completed",
+        "class": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "AMB",
+                "display": "ambulatory"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "serviceProvider": {
+          "display": "2025\nSYNTHETIC TRAINING RECORD - FICTIONAL PATIENT, PROVIDERS AND FACILITIES - FOR INTERVIEW ASSESSMENT USE ONLY\nLTM-PI-00003\nPIEDMONT COUNTY GENERAL HOSPITAL"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:enc-004",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-004",
+        "status": "completed",
+        "class": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "AMB",
+                "display": "ambulatory"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "serviceProvider": {
+          "display": "2025\nSYNTHETIC TRAINING RECORD - FICTIONAL PATIENT, PROVIDERS AND FACILITIES - FOR INTERVIEW ASSESSMENT USE ONLY\nLTM-PI-00004\nPIEDMONT COUNTY GENERAL HOSPITAL"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:enc-005",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-005",
+        "status": "completed",
+        "class": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "AMB",
+                "display": "ambulatory"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "serviceProvider": {
+          "display": "2025\nSYNTHETIC TRAINING RECORD - FICTIONAL PATIENT, PROVIDERS AND FACILITIES - FOR INTERVIEW ASSESSMENT USE ONLY\nLTM-PI-00005\nPIEDMONT COUNTY GENERAL HOSPITAL"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:enc-006",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-006",
+        "status": "completed",
+        "class": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "AMB",
+                "display": "ambulatory"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "serviceProvider": {
+          "display": "2025\nSYNTHETIC TRAINING RECORD - FICTIONAL PATIENT, PROVIDERS AND FACILITIES - FOR INTERVIEW ASSESSMENT USE ONLY\nLTM-PI-00006\nNORTHGATE FAMILY MEDICINE ASSOCIATES"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:enc-007",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-007",
+        "status": "completed",
+        "class": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "AMB",
+                "display": "ambulatory"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "serviceProvider": {
+          "display": "2025\nSYNTHETIC TRAINING RECORD - FICTIONAL PATIENT, PROVIDERS AND FACILITIES - FOR INTERVIEW ASSESSMENT USE ONLY\nLTM-PI-00007\nMERIDIAN REHABILITATION"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:enc-008",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-008",
+        "status": "completed",
+        "class": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "AMB",
+                "display": "ambulatory"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "serviceProvider": {
+          "display": "2024\nAccession\nMR-24-20719 CPT 72148\nReferring\nL. Osei-Bonsu, MD\nCLINIC"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:enc-009",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-009",
+        "status": "completed",
+        "class": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "AMB",
+                "display": "ambulatory"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "serviceProvider": {
+          "display": "2025\nSYNTHETIC TRAINING RECORD - FICTIONAL PATIENT, PROVIDERS AND FACILITIES - FOR INTERVIEW ASSESSMENT USE ONLY\nLTM-PI-00009\nHALLOWAY ORTHOPEDIC SPINE INSTITUTE\nSpine Surgery and Non-Operative Spine Care\nORTHOPEDIC"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:enc-010",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-010",
+        "status": "completed",
+        "class": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "AMB",
+                "display": "ambulatory"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "serviceProvider": {
+          "display": "2025\nSYNTHETIC TRAINING RECORD - FICTIONAL PATIENT, PROVIDERS AND FACILITIES - FOR INTERVIEW ASSESSMENT USE ONLY\nLTM-PI-00010\nMERIDIAN REHABILITATION"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:enc-011",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-011",
+        "status": "completed",
+        "class": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "AMB",
+                "display": "ambulatory"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "serviceProvider": {
+          "display": "lidocaine. No sedation.\nComplications\nNone\nINDICATION\nPatient with imaging-confirmed right paracentral L4-L5 disc protrusion and clinic"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:enc-012",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-012",
+        "status": "completed",
+        "class": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "AMB",
+                "display": "ambulatory"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "serviceProvider": {
+          "display": "2025\nSYNTHETIC TRAINING RECORD - FICTIONAL PATIENT, PROVIDERS AND FACILITIES - FOR INTERVIEW ASSESSMENT USE ONLY\nLTM-PI-00013\nHALLOWAY ORTHOPEDIC SPINE INSTITUTE\nHandwritten Clinic Note - Transcribed from Scanned Chart\nORTHOPEDIC"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:enc-013",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-013",
+        "status": "completed",
+        "class": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "AMB",
+                "display": "ambulatory"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "serviceProvider": {
+          "display": "2024\nElectromyographer\nH. Vasquez-Lund, MD\nReferring\nG. Halloway, MD\nCLINIC"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:enc-014",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-014",
+        "status": "completed",
+        "class": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "AMB",
+                "display": "ambulatory"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "serviceProvider": {
+          "display": "2025\nSYNTHETIC TRAINING RECORD - FICTIONAL PATIENT, PROVIDERS AND FACILITIES - FOR INTERVIEW ASSESSMENT USE ONLY\nLTM-PI-00015\nPIEDMONT COUNTY GENERAL HOSPITAL"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:enc-015",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-015",
+        "status": "completed",
+        "class": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "AMB",
+                "display": "ambulatory"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "serviceProvider": {
+          "display": "2025\nSYNTHETIC TRAINING RECORD - FICTIONAL PATIENT, PROVIDERS AND FACILITIES - FOR INTERVIEW ASSESSMENT USE ONLY\nLTM-PI-00016\nMERIDIAN REHABILITATION"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:enc-016",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-016",
+        "status": "completed",
+        "class": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "AMB",
+                "display": "ambulatory"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "serviceProvider": {
+          "display": "2025\nSYNTHETIC TRAINING RECORD - FICTIONAL PATIENT, PROVIDERS AND FACILITIES - FOR INTERVIEW ASSESSMENT USE ONLY\nLTM-PI-00017\nHALLOWAY ORTHOPEDIC SPINE INSTITUTE"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:enc-017",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-017",
+        "status": "completed",
+        "class": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "AMB",
+                "display": "ambulatory"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "serviceProvider": {
+          "display": "2025\nSYNTHETIC TRAINING RECORD - FICTIONAL PATIENT, PROVIDERS AND FACILITIES - FOR INTERVIEW ASSESSMENT USE ONLY\nLTM-PI-00018\nRIVERBEND URGENT CARE"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:enc-018",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-018",
+        "status": "completed",
+        "class": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "AMB",
+                "display": "ambulatory"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "serviceProvider": {
+          "display": "2025\nSYNTHETIC TRAINING RECORD - FICTIONAL PATIENT, PROVIDERS AND FACILITIES - FOR INTERVIEW ASSESSMENT USE ONLY\nLTM-PI-00019\nGREENLEAF COMMUNITY PHARMACY"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:enc-019",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-019",
+        "status": "completed",
+        "class": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "AMB",
+                "display": "ambulatory"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "serviceProvider": {
+          "display": "2025\nSYNTHETIC TRAINING RECORD - FICTIONAL PATIENT, PROVIDERS AND FACILITIES - FOR INTERVIEW ASSESSMENT USE ONLY\nLTM-PI-00020\nMERIDIAN HEALTH SYSTEM - PATIENT FINANCIAL SERVICES"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:enc-020",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-020",
+        "status": "completed",
+        "class": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "AMB",
+                "display": "ambulatory"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "serviceProvider": {
+          "display": "2025\nSYNTHETIC TRAINING RECORD - FICTIONAL PATIENT, PROVIDERS AND FACILITIES - FOR INTERVIEW ASSESSMENT USE ONLY\nLTM-PI-00021\nATLAS LOGISTICS GROUP"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:enc-021",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-021",
+        "status": "completed",
+        "class": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "AMB",
+                "display": "ambulatory"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "serviceProvider": {
+          "display": "2025\nSYNTHETIC TRAINING RECORD - FICTIONAL PATIENT, PROVIDERS AND FACILITIES - FOR INTERVIEW ASSESSMENT USE ONLY\nLTM-PI-00022\nOFFICE OF THE RECORDS CUSTODIAN"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cond-001",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-001",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "resolved"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "M54.2",
+              "display": "Cervicalgia"
+            }
+          ],
+          "text": "Cervical strain"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cond-002",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-002",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "M54.5",
+              "display": "Low back pain"
+            }
+          ],
+          "text": "Lumbosacral strain"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cond-003",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-003",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "M51.36",
+              "display": "Other intervertebral disc degeneration, lumbar region"
+            }
+          ],
+          "text": "Degenerative disc disease"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cond-004",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-004",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "M47.816",
+              "display": "Spondylosis without myelopathy or radiculopathy, lumbar region"
+            }
+          ],
+          "text": "Facet arthropathy"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cond-007",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-007",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "M54.16",
+              "display": "Radiculopathy, lumbar region"
+            }
+          ],
+          "text": "Right lumbar radiculopathy"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cond-012",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-012",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "M51.26",
+              "display": "Other intervertebral disc displacement, lumbar region"
+            }
+          ],
+          "text": "Herniated nucleus pulposus L4-L5"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cond-015",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-015",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "M54.16",
+              "display": "Radiculopathy, lumbar region"
+            }
+          ],
+          "text": "Right lumbar radiculopathy"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cond-016",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-016",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "M51.26",
+              "display": "Other intervertebral disc displacement, lumbar region"
+            }
+          ],
+          "text": "Herniated nucleus pulposus L4-L5"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cond-017",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-017",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "M51.36",
+              "display": "Other intervertebral disc degeneration, lumbar region"
+            }
+          ],
+          "text": "Degenerative disc disease"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cond-024",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-024",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "M47.816",
+              "display": "Spondylosis without myelopathy or radiculopathy, lumbar region"
+            }
+          ],
+          "text": "Facet arthropathy"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:med-001",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-001",
+        "status": "recorded",
+        "medication": {
+          "concept": {
+            "coding": [
+              {
+                "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                "code": "313002",
+                "display": "Methocarbamol 750 MG Oral Tablet"
+              }
+            ],
+            "text": "Methocarbamol 750 mg"
+          }
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "dosage": [
+          {
+            "text": "750 mg oral TID PRN"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:med-002",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-002",
+        "status": "recorded",
+        "medication": {
+          "concept": {
+            "coding": [
+              {
+                "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                "code": "198014",
+                "display": "Naproxen 500 MG Oral Tablet"
+              }
+            ],
+            "text": "Naproxen 500 mg"
+          }
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "dosage": [
+          {
+            "text": "500 mg oral BID with food"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:med-003",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-003",
+        "status": "recorded",
+        "medication": {
+          "concept": {
+            "text": "Acetaminophen / Codeine #3 300/30 mg"
+          }
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "dosage": [
+          {
+            "text": "300/30 mg oral 1-2 tabs q4-6h PRN"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:med-007",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-007",
+        "status": "recorded",
+        "medication": {
+          "concept": {
+            "coding": [
+              {
+                "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                "code": "310432",
+                "display": "Gabapentin 300 MG Oral Capsule"
+              }
+            ],
+            "text": "Gabapentin 300 mg"
+          }
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "dosage": [
+          {
+            "text": "300 mg oral TID"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:med-011",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-011",
+        "status": "recorded",
+        "medication": {
+          "concept": {
+            "coding": [
+              {
+                "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                "code": "854910",
+                "display": "Dexamethasone 4 MG/ML Injectable Solution"
+              }
+            ],
+            "text": "Dexamethasone 10 mg"
+          }
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "dosage": [
+          {
+            "text": "10 mg epidural injection single dose"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:med-012",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-012",
+        "status": "recorded",
+        "medication": {
+          "concept": {
+            "coding": [
+              {
+                "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                "code": "1659139",
+                "display": "Bupivacaine Hydrochloride 5 MG/ML (0.5%) Injectable Solution"
+              }
+            ],
+            "text": "Bupivacaine 0.5% 1 mL (0.5%)"
+          }
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "dosage": [
+          {
+            "text": "1 mL (0.5%) epidural injection single dose"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:med-013",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-013",
+        "status": "recorded",
+        "medication": {
+          "concept": {
+            "coding": [
+              {
+                "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                "code": "205423",
+                "display": "Cyclobenzaprine hydrochloride 10 MG Oral Tablet"
+              }
+            ],
+            "text": "Cyclobenzaprine 10 mg"
+          }
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "dosage": [
+          {
+            "text": "10 mg oral TID PRN muscle spasm"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:med-017",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "med-017",
+        "status": "recorded",
+        "medication": {
+          "concept": {
+            "coding": [
+              {
+                "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                "code": "1049621",
+                "display": "Acetaminophen 325 MG / Oxycodone Hydrochloride 5 MG Oral Tablet"
+              }
+            ],
+            "text": "Oxycodone / Acetaminophen 5/325 mg"
+          }
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "dosage": [
+          {
+            "text": "5/325 mg oral q4-6h PRN post-op pain"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:alg-001",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "id": "alg-001",
+        "code": {
+          "text": "CODEINE (rash, documented by patient) ; NKA otherwise"
+        },
+        "patient": {
+          "reference": "Patient/pat-001"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:alg-002",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "id": "alg-002",
+        "code": {
+          "text": "on File"
+        },
+        "patient": {
+          "reference": "Patient/pat-001"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:proc-001",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "proc-001",
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "72125",
+              "display": "Computed tomography, cervical spine; without contrast material"
+            }
+          ],
+          "text": "CT Cervical Spine without contrast"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:proc-003",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "proc-003",
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "72148",
+              "display": "Magnetic resonance (eg, proton) imaging, spinal canal and contents, lumbar spine; without contrast material"
+            }
+          ],
+          "text": "MRI Lumbar Spine without contrast"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:proc-004",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "proc-004",
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "97110",
+              "display": "Therapeutic procedure, 1 or more areas, each 15 minutes; therapeutic exercises"
+            }
+          ],
+          "text": "Physical Therapy Initial Evaluation"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:proc-005",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "proc-005",
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "72148",
+              "display": "Magnetic resonance (eg, proton) imaging, spinal canal and contents, lumbar spine; without contrast material"
+            }
+          ],
+          "text": "MRI Lumbar Spine without contrast"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:proc-006",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "proc-006",
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "72148",
+              "display": "Magnetic resonance (eg, proton) imaging, spinal canal and contents, lumbar spine; without contrast material"
+            }
+          ],
+          "text": "MRI Lumbar Spine without contrast"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:proc-007",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "proc-007",
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "64483",
+              "display": "Injection(s), anesthetic agent and/or steroid, transforaminal epidural; lumbar or sacral, single level"
+            }
+          ],
+          "text": "Transforaminal Epidural Steroid Injection (Right L4-L5)"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:proc-008",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "proc-008",
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "63030",
+              "display": "Laminotomy (hemilaminectomy), with decompression of nerve root(s), including partial facetectomy, foraminotomy and/or excision of herniated intervertebral disc; 1 interspace, lumbar"
+            }
+          ],
+          "text": "Right L4-L5 Lumbar Microdiscectomy"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:proc-009",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "proc-009",
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "64483",
+              "display": "Injection(s), anesthetic agent and/or steroid, transforaminal epidural; lumbar or sacral, single level"
+            }
+          ],
+          "text": "Transforaminal Epidural Steroid Injection (Right L4-L5)"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:proc-010",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "proc-010",
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "64483",
+              "display": "Injection(s), anesthetic agent and/or steroid, transforaminal epidural; lumbar or sacral, single level"
+            }
+          ],
+          "text": "Transforaminal Epidural Steroid Injection (Right L4-L5)"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:proc-011",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "proc-011",
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "95886",
+              "display": "Needle electromyography, each extremity, with related paraspinal areas"
+            }
+          ],
+          "text": "Electromyography and Nerve Conduction Study"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:proc-012",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "proc-012",
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "64483",
+              "display": "Injection(s), anesthetic agent and/or steroid, transforaminal epidural; lumbar or sacral, single level"
+            }
+          ],
+          "text": "Transforaminal Epidural Steroid Injection (Right L4-L5)"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:proc-013",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "proc-013",
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "63030",
+              "display": "Laminotomy (hemilaminectomy), with decompression of nerve root(s), including partial facetectomy, foraminotomy and/or excision of herniated intervertebral disc; 1 interspace, lumbar"
+            }
+          ],
+          "text": "Right L4-L5 Lumbar Microdiscectomy"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:proc-014",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "proc-014",
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "72100",
+              "display": "Radiologic examination, spine, lumbosacral; 2 or 3 views"
+            }
+          ],
+          "text": "Lumbar Spine Radiographs, 2 Views"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:proc-016",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "proc-016",
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "72148",
+              "display": "Magnetic resonance (eg, proton) imaging, spinal canal and contents, lumbar spine; without contrast material"
+            }
+          ],
+          "text": "MRI Lumbar Spine without contrast"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:proc-017",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "proc-017",
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "64483",
+              "display": "Injection(s), anesthetic agent and/or steroid, transforaminal epidural; lumbar or sacral, single level"
+            }
+          ],
+          "text": "Transforaminal Epidural Steroid Injection (Right L4-L5)"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:proc-018",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "proc-018",
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "64483",
+              "display": "Injection(s), anesthetic agent and/or steroid, transforaminal epidural; lumbar or sacral, single level"
+            }
+          ],
+          "text": "Transforaminal Epidural Steroid Injection (Right L4-L5)"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-001",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-001",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "85354-9",
+              "display": "Blood pressure panel with all children optional"
+            }
+          ],
+          "text": "Blood Pressure Panel"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "valueString": "148/88"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-002",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-002",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8867-4",
+              "display": "Heart rate"
+            }
+          ],
+          "text": "Heart Rate"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "valueQuantity": {
+          "value": 96.0,
+          "unit": "/min",
+          "system": "http://unitsofmeasure.org"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-003",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-003",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2708-6",
+              "display": "Oxygen saturation in Arterial blood by Pulse oximetry"
+            }
+          ],
+          "text": "Oxygen Saturation (SpO2)"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "valueQuantity": {
+          "value": 98.0,
+          "unit": "%",
+          "system": "http://unitsofmeasure.org"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-004",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-004",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "85354-9",
+              "display": "Blood pressure panel with all children optional"
+            }
+          ],
+          "text": "Blood Pressure Panel"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "valueString": "144/86"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-005",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-005",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8867-4",
+              "display": "Heart rate"
+            }
+          ],
+          "text": "Heart Rate"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "valueQuantity": {
+          "value": 92.0,
+          "unit": "/min",
+          "system": "http://unitsofmeasure.org"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-006",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-006",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2708-6",
+              "display": "Oxygen saturation in Arterial blood by Pulse oximetry"
+            }
+          ],
+          "text": "Oxygen Saturation (SpO2)"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "valueQuantity": {
+          "value": 99.0,
+          "unit": "%",
+          "system": "http://unitsofmeasure.org"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-007",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-007",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "85354-9",
+              "display": "Blood pressure panel with all children optional"
+            }
+          ],
+          "text": "Blood Pressure Panel"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "valueString": "128/80"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-008",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-008",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8867-4",
+              "display": "Heart rate"
+            }
+          ],
+          "text": "Heart Rate"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "valueQuantity": {
+          "value": 76.0,
+          "unit": "/min",
+          "system": "http://unitsofmeasure.org"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-009",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-009",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "80340-3",
+              "display": "Straight leg raise test finding"
+            }
+          ],
+          "text": "Straight Leg Raise Test (Right)"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "valueQuantity": {
+          "value": 40.0,
+          "unit": "deg",
+          "system": "http://unitsofmeasure.org"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-010",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-010",
+        "status": "final",
+        "code": {
+          "text": "Right Extensor Hallucis Longus (EHL) Strength"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "valueString": "4/5 strength"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-011",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-011",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "80340-3",
+              "display": "Straight leg raise test finding"
+            }
+          ],
+          "text": "Straight Leg Raise Test (Right)"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "valueQuantity": {
+          "value": 40.0,
+          "unit": "deg",
+          "system": "http://unitsofmeasure.org"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-012",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-012",
+        "status": "final",
+        "code": {
+          "text": "Right Extensor Hallucis Longus (EHL) Strength"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "valueString": "4/5 strength"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-013",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-013",
+        "status": "final",
+        "code": {
+          "text": "Right Extensor Hallucis Longus (EHL) Strength"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "valueString": "4/5 strength"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-014",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-014",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "72514-3",
+              "display": "Pain severity - 0-10 verbal numeric rating [Score] - Reported"
+            }
+          ],
+          "text": "Pain Severity Score (0-10)"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "valueQuantity": {
+          "value": 1.0,
+          "unit": "{score}",
+          "system": "http://unitsofmeasure.org"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-015",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-015",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "72514-3",
+              "display": "Pain severity - 0-10 verbal numeric rating [Score] - Reported"
+            }
+          ],
+          "text": "Pain Severity Score (0-10)"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "valueQuantity": {
+          "value": 3.0,
+          "unit": "{score}",
+          "system": "http://unitsofmeasure.org"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-016",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-016",
+        "status": "final",
+        "code": {
+          "text": "Right Extensor Hallucis Longus (EHL) Strength"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "valueString": "4+/5 strength"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:doc-001",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "doc-001",
+        "status": "current",
+        "type": {
+          "text": "Ambulance Run Report"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "title": "Pages 1-1"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:doc-002",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "doc-002",
+        "status": "current",
+        "type": {
+          "text": "Ct"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "title": "Pages 2-2"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:doc-003",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "doc-003",
+        "status": "current",
+        "type": {
+          "text": "Emergency Physician Note"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "title": "Pages 3-3"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:doc-004",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "doc-004",
+        "status": "current",
+        "type": {
+          "text": "Ct"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "title": "Pages 4-4"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:doc-005",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "doc-005",
+        "status": "current",
+        "type": {
+          "text": "Ct"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "title": "Pages 5-5"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:doc-006",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "doc-006",
+        "status": "current",
+        "type": {
+          "text": "Office Visit Note"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "title": "Pages 6-6"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:doc-007",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "doc-007",
+        "status": "current",
+        "type": {
+          "text": "Ct"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "title": "Pages 7-7"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:doc-008",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "doc-008",
+        "status": "current",
+        "type": {
+          "text": "Ct"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "title": "Pages 8-8"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:doc-009",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "doc-009",
+        "status": "current",
+        "type": {
+          "text": "Ct"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "title": "Pages 9-9"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:doc-010",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "doc-010",
+        "status": "current",
+        "type": {
+          "text": "Ct"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "title": "Pages 10-10"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:doc-011",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "doc-011",
+        "status": "current",
+        "type": {
+          "text": "Ct"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "title": "Pages 11-11"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:doc-012",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "doc-012",
+        "status": "current",
+        "type": {
+          "text": "Ct"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "title": "Pages 12-12"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:doc-013",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "doc-013",
+        "status": "current",
+        "type": {
+          "text": "Ct"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "title": "Pages 13-13"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:doc-014",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "doc-014",
+        "status": "current",
+        "type": {
+          "text": "Ct"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "title": "Pages 14-14"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:doc-015",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "doc-015",
+        "status": "current",
+        "type": {
+          "text": "Ct"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "title": "Pages 15-15"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:doc-016",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "doc-016",
+        "status": "current",
+        "type": {
+          "text": "Ct"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "title": "Pages 16-16"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:doc-017",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "doc-017",
+        "status": "current",
+        "type": {
+          "text": "Office Visit Note"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "title": "Pages 17-17"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:doc-018",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "doc-018",
+        "status": "current",
+        "type": {
+          "text": "Ct"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "title": "Pages 18-18"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:doc-019",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "doc-019",
+        "status": "current",
+        "type": {
+          "text": "Ct"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "title": "Pages 19-19"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:doc-020",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "doc-020",
+        "status": "current",
+        "type": {
+          "text": "Ct"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "title": "Pages 20-20"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:doc-021",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "doc-021",
+        "status": "current",
+        "type": {
+          "text": "Ct"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "title": "Pages 21-21"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:doc-022",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "doc-022",
+        "status": "current",
+        "type": {
+          "text": "Ct"
+        },
+        "subject": {
+          "reference": "Patient/pat-001"
+        },
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "title": "Pages 22-22"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
