@@ -25,6 +25,10 @@ if isinstance(raw_origins, (list, tuple)):
 else:
     origins = [orig.strip() for orig in str(raw_origins).split(",") if orig.strip()]
 
+# Ensure Vercel production domain is always present
+if "https://canonical-clinical-intelligence.vercel.app" not in origins and "*" not in origins:
+    origins.append("https://canonical-clinical-intelligence.vercel.app")
+
 if not origins or "*" in origins:
     allow_origins = ["*"]
     allow_credentials = False
@@ -35,6 +39,7 @@ else:
 app.add_middleware(
     CORSMiddleware,
     allow_origins=allow_origins,
+    allow_origin_regex=r"https://canonical-clinical-intelligence.*\.vercel\.app|https://.*\.vercel\.app",
     allow_credentials=allow_credentials,
     allow_methods=["*"],
     allow_headers=["*"],

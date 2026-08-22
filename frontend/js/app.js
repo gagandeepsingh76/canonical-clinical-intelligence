@@ -15,15 +15,26 @@ let _currentRunId = 0;           // Monotonically increasing run ID — stale ti
 /* ==========================================================================
    0. CENTRALIZED API BASE CONFIGURATION
    ========================================================================== */
+const DEFAULT_PRODUCTION_API_URL = 'https://canonical-clinical-intelligence.onrender.com';
+
 function getApiBaseUrl() {
   if (typeof window !== 'undefined') {
-    if (window.API_BASE_URL && typeof window.API_BASE_URL === 'string') {
+    // 1. Explicit window override
+    if (window.API_BASE_URL && typeof window.API_BASE_URL === 'string' && window.API_BASE_URL.trim() !== '') {
       return window.API_BASE_URL.replace(/\/+$/, '');
     }
+    // 2. LocalStorage override
     const localOverride = localStorage.getItem('api_base_url');
-    if (localOverride) {
+    if (localOverride && localOverride.trim() !== '') {
       return localOverride.replace(/\/+$/, '');
     }
+    // 3. Localhost development environment
+    const hostname = window.location.hostname;
+    if (hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '') {
+      return '';
+    }
+    // 4. Production default (e.g. hosted on Vercel)
+    return DEFAULT_PRODUCTION_API_URL;
   }
   return '';
 }
@@ -32,6 +43,37 @@ function apiUrl(path) {
   const base = getApiBaseUrl();
   const cleanPath = path.startsWith('/') ? path : `/${path}`;
   return `${base}${cleanPath}`;
+}
+
+function updateApiDocsLink() {
+  const docsLink = document.getElementById('header-api-docs-link');
+  if (docsLink) {
+    const base = getApiBaseUrl() || DEFAULT_PRODUCTION_API_URL;
+    docsLink.href = `${base}/docs`;
+  }
+}
+
+async function checkApiHealth() {
+  const statusVal = document.getElementById('header-api-status-text');
+  const dot = document.getElementById('header-api-dot') || document.querySelector('.header-api-dot');
+  try {
+    const res = await fetch(apiUrl('/health'), { method: 'GET', cache: 'no-store' });
+    if (res.ok) {
+      if (statusVal) statusVal.textContent = 'Online';
+      if (dot) {
+        dot.style.background = 'var(--accent-emerald, #10B981)';
+        dot.style.boxShadow = '0 0 8px rgba(16, 185, 129, 0.4)';
+      }
+    } else {
+      if (statusVal) statusVal.textContent = 'Degraded';
+    }
+  } catch (e) {
+    if (statusVal) statusVal.textContent = 'Connecting...';
+    if (dot) {
+      dot.style.background = 'var(--accent-amber, #F59E0B)';
+      dot.style.boxShadow = '0 0 8px rgba(245, 158, 11, 0.4)';
+    }
+  }
 }
 
 function showToast(message, type = 'info') {
@@ -70,6 +112,8 @@ document.addEventListener('DOMContentLoaded', () => {
   setupNavigation();
   setupDragAndDrop();
   loadInitialData();
+  updateApiDocsLink();
+  checkApiHealth();
   if (window.lucide) lucide.createIcons();
 });
 

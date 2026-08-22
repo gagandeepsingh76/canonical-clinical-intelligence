@@ -8,7 +8,7 @@ class Settings(BaseSettings):
     API_PREFIX: str = "/api"
     ALLOWED_ORIGINS: str = os.getenv(
         "ALLOWED_ORIGINS",
-        "http://localhost:3000,http://127.0.0.1:3000,http://localhost:8000,http://127.0.0.1:8000,http://localhost:5500,http://127.0.0.1:5500"
+        "http://localhost:3000,http://127.0.0.1:3000,http://localhost:8000,http://127.0.0.1:8000,http://localhost:5500,http://127.0.0.1:5500,https://canonical-clinical-intelligence.vercel.app"
     )
     API_BASE_URL: str = os.getenv("API_BASE_URL", "")
     

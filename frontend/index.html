@@ -10,9 +10,12 @@
   <link rel="stylesheet" href="css/style.css">
   <!-- Production API Base URL & Theme Configuration -->
   <script>
-    // Configurable API base for split frontend (Vercel) / backend (Render) deployment
-    // Set to your deployed Render URL in production or leave empty for same-origin proxy
-    window.API_BASE_URL = window.API_BASE_URL || "";
+    // Primary API origin: Render FastAPI backend in production, same-origin in local dev
+    window.API_BASE_URL = window.API_BASE_URL || (
+      window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+        ? ''
+        : 'https://canonical-clinical-intelligence.onrender.com'
+    );
     (function () {
       var saved = localStorage.getItem('app_theme') || 'light';
       // Migrate legacy 'system'/'auto' values to 'light'
@@ -251,11 +254,11 @@
           </button>
 
           <!-- API Status -->
-          <a href="/docs" target="_blank" class="header-api-status" title="Open FastAPI Swagger UI">
-            <span class="header-api-dot"></span>
+          <a href="https://canonical-clinical-intelligence.onrender.com/docs" id="header-api-docs-link" target="_blank" class="header-api-status" title="Open FastAPI Swagger UI">
+            <span class="header-api-dot" id="header-api-dot"></span>
             <div class="header-api-text">
               <span class="header-api-label">API</span>
-              <span class="header-api-value">Online</span>
+              <span class="header-api-value" id="header-api-status-text">Online</span>
             </div>
           </a>
 

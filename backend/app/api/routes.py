@@ -30,13 +30,26 @@ class QueryRequest(BaseModel):
 @router.post("/process", response_model=PipelineResult)
 def process_default_record(db: Session = Depends(get_db)):
     global _LATEST_RESULT
-    default_file = str(settings.BASE_DIR / "Synthetic_Medical_Record_Exercise_Whitfield 1.pdf")
-    if not Path(default_file).exists():
-        raise HTTPException(status_code=404, detail="Default PDF file not found")
+    candidate_paths = [
+        settings.BASE_DIR / "Synthetic_Medical_Record_Exercise_Whitfield 1.pdf",
+        settings.DATA_DIR / "Synthetic_Medical_Record_Exercise_Whitfield 1.pdf",
+        settings.BASE_DIR / "data" / "Synthetic_Medical_Record_Exercise_Whitfield 1.pdf",
+        Path("Synthetic_Medical_Record_Exercise_Whitfield 1.pdf"),
+        Path("data/Synthetic_Medical_Record_Exercise_Whitfield 1.pdf"),
+    ]
+    default_file = None
+    for p in candidate_paths:
+        if p.exists():
+            default_file = str(p)
+            break
     
-    result = MedicalRecordPipeline.process_pdf(default_file, db=db)
-    _LATEST_RESULT = result
-    return result
+    if not default_file:
+        raise HTTPException(status_code=404, detail="Default PDF file not found on server")
+    
+    with _PIPELINE_LOCK:
+        result = MedicalRecordPipeline.process_pdf(default_file, db=db)
+        _LATEST_RESULT = result
+        return result
 
 @router.post("/process-compliance", response_model=PipelineResult)
 def process_compliance_record(db: Session = Depends(get_db)):
