@@ -1,0 +1,104 @@
+{
+  "72125": {
+    "code": "72125",
+    "display": "Computed tomography, cervical spine; without contrast material",
+    "synonyms": [
+      "ct cervical spine without contrast",
+      "ct cervical spine",
+      "ct c-spine",
+      "cervical spine ct"
+    ]
+  },
+  "72100": {
+    "code": "72100",
+    "display": "Radiologic examination, spine, lumbosacral; 2 or 3 views",
+    "synonyms": [
+      "lumbar spine radiographs, 2 views",
+      "plain radiographs lumbar spine",
+      "lumbar spine x-ray",
+      "x-ray lumbar spine",
+      "lumbar x-ray"
+    ]
+  },
+  "72148": {
+    "code": "72148",
+    "display": "Magnetic resonance (eg, proton) imaging, spinal canal and contents, lumbar spine; without contrast material",
+    "synonyms": [
+      "mri lumbar spine without contrast",
+      "mri lumbar spine",
+      "lumbar mri",
+      "mri l-spine"
+    ]
+  },
+  "64483": {
+    "code": "64483",
+    "display": "Injection(s), anesthetic agent and/or steroid, transforaminal epidural; lumbar or sacral, single level",
+    "synonyms": [
+      "transforaminal epidural steroid injection",
+      "lumbar tfesi",
+      "right l4-l5 tfesi",
+      "tfesi",
+      "epidural steroid injection"
+    ]
+  },
+  "63030": {
+    "code": "63030",
+    "display": "Laminotomy (hemilaminectomy), with decompression of nerve root(s), including partial facetectomy, foraminotomy and/or excision of herniated intervertebral disc; 1 interspace, lumbar",
+    "synonyms": [
+      "right l4-l5 microdiscectomy",
+      "lumbar microdiscectomy",
+      "microdiscectomy",
+      "right l4-l5 laminotomy and discectomy",
+      "lumbar discectomy"
+    ]
+  },
+  "97110": {
+    "code": "97110",
+    "display": "Therapeutic procedure, 1 or more areas, each 15 minutes; therapeutic exercises",
+    "synonyms": [
+      "physical therapy",
+      "pt evaluation",
+      "therapeutic exercises",
+      "physical therapy progress note",
+      "outpatient physical therapy"
+    ]
+  },
+  "99284": {
+    "code": "99284",
+    "display": "Emergency department visit for the evaluation and management of a patient, high severity",
+    "synonyms": [
+      "emergency department visit",
+      "ed visit",
+      "emergency physician note",
+      "ed triage & nursing record"
+    ]
+  },
+  "99214": {
+    "code": "99214",
+    "display": "Office or other outpatient visit for the evaluation and management of an established patient, moderate-to-high complexity",
+    "synonyms": [
+      "office visit note - primary care",
+      "primary care follow-up",
+      "orthopedic spine consultation",
+      "post-operative office visit"
+    ]
+  },
+  "95886": {
+    "code": "95886",
+    "display": "Needle electromyography, each extremity, with related paraspinal areas",
+    "synonyms": [
+      "needle emg",
+      "electromyography",
+      "emg study"
+    ]
+  },
+  "95909": {
+    "code": "95909",
+    "display": "Nerve conduction studies; 5-6 studies",
+    "synonyms": [
+      "nerve conduction study",
+      "ncs",
+      "emg / ncs report"
+    ]
+  }
+}

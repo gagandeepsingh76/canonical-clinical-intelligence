@@ -1,0 +1,136 @@
+{
+  "205423": {
+    "code": "205423",
+    "display": "Cyclobenzaprine hydrochloride 10 MG Oral Tablet",
+    "generic_name": "Cyclobenzaprine",
+    "brand_names": ["Flexeril"],
+    "synonyms": [
+      "cyclobenzaprine",
+      "cyclobenzaprine 10 mg",
+      "cyclobenzaprine 10mg",
+      "cyclobenzaprine hcl 10 mg",
+      "flexeril",
+      "flexeril 10 mg",
+      "flexeril 10mg"
+    ]
+  },
+  "198014": {
+    "code": "198014",
+    "display": "Naproxen 500 MG Oral Tablet",
+    "generic_name": "Naproxen",
+    "brand_names": ["Naprosyn", "Aleve"],
+    "synonyms": [
+      "naproxen",
+      "naproxen 500 mg",
+      "naproxen 500mg",
+      "naprosyn",
+      "naprosyn 500 mg"
+    ]
+  },
+  "1049683": {
+    "code": "1049683",
+    "display": "Acetaminophen 300 MG / Codeine Phosphate 30 MG Oral Tablet",
+    "generic_name": "Acetaminophen / Codeine",
+    "brand_names": ["Tylenol #3", "Tylenol with Codeine"],
+    "synonyms": [
+      "tylenol #3",
+      "tylenol with codeine",
+      "tylenol 3",
+      "acetaminophen-codeine 300/30",
+      "acetaminophen-codeine 300/30mg",
+      "acetaminophen/codeine 300-30 mg",
+      "codeine / acetaminophen"
+    ]
+  },
+  "310432": {
+    "code": "310432",
+    "display": "Gabapentin 300 MG Oral Capsule",
+    "generic_name": "Gabapentin",
+    "brand_names": ["Neurontin"],
+    "synonyms": [
+      "gabapentin",
+      "gabapentin 300 mg",
+      "gabapentin 300mg",
+      "gabapentin 300 mg cap",
+      "neurontin",
+      "neurontin 300 mg"
+    ]
+  },
+  "1049621": {
+    "code": "1049621",
+    "display": "Acetaminophen 325 MG / Oxycodone Hydrochloride 5 MG Oral Tablet",
+    "generic_name": "Oxycodone / Acetaminophen",
+    "brand_names": ["Percocet", "Roxicet"],
+    "synonyms": [
+      "oxycodone/acetaminophen 5/325",
+      "oxycodone/acetaminophen 5/325mg",
+      "oxycodone-acetaminophen 5/325",
+      "oxycodone / apap 5/325",
+      "percocet",
+      "percocet 5/325"
+    ]
+  },
+  "311036": {
+    "code": "311036",
+    "display": "Ketorolac Tromethamine 30 MG/ML Injectable Solution",
+    "generic_name": "Ketorolac",
+    "brand_names": ["Toradol"],
+    "synonyms": [
+      "toradol",
+      "toradol 30mg iv",
+      "toradol 30 mg",
+      "ketorolac",
+      "ketorolac 30 mg"
+    ]
+  },
+  "854910": {
+    "code": "854910",
+    "display": "Dexamethasone 4 MG/ML Injectable Solution",
+    "generic_name": "Dexamethasone",
+    "brand_names": ["Decadron"],
+    "synonyms": [
+      "dexamethasone",
+      "dexamethasone 10mg",
+      "dexamethasone 10 mg",
+      "decadron"
+    ]
+  },
+  "1659139": {
+    "code": "1659139",
+    "display": "Bupivacaine Hydrochloride 5 MG/ML (0.5%) Injectable Solution",
+    "generic_name": "Bupivacaine",
+    "brand_names": ["Marcaine", "Sensorcaine"],
+    "synonyms": [
+      "bupivacaine 0.5%",
+      "bupivacaine 0.5 percent",
+      "bupivacaine",
+      "marcaine"
+    ]
+  },
+  "313002": {
+    "code": "313002",
+    "display": "Methocarbamol 750 MG Oral Tablet",
+    "generic_name": "Methocarbamol",
+    "brand_names": ["Robaxin"],
+    "synonyms": [
+      "methocarbamol",
+      "methocarbamol 750 mg",
+      "methocarbamol 750mg",
+      "robaxin",
+      "robaxin 750 mg"
+    ]
+  },
+  "8591": {
+    "code": "8591",
+    "display": "Sodium Chloride 0.9% Injectable Solution",
+    "generic_name": "Normal Saline",
+    "brand_names": ["Normal Saline"],
+    "synonyms": [
+      "iv normal saline",
+      "normal saline",
+      "0.9% normal saline",
+      "saline lock",
+      "sodium chloride 0.9%"
+    ]
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "M54.16": {
+    "code": "M54.16",
+    "display": "Radiculopathy, lumbar region",
+    "synonyms": [
+      "lumbar radiculopathy",
+      "right lumbar radiculopathy",
+      "left lumbar radiculopathy",
+      "l5 radiculopathy",
+      "right l5 radiculopathy",
+      "l4-l5 radiculopathy",
+      "lumbar nerve root compression",
+      "sciatica",
+      "radicular pain right leg",
+      "right lower extremity radicular symptoms"
+    ]
+  },
+  "M54.2": {
+    "code": "M54.2",
+    "display": "Cervicalgia",
+    "synonyms": [
+      "cervical strain",
+      "acute cervical strain",
+      "neck pain",
+      "cervical spine pain",
+      "cervical whiplash",
+      "neck sprain"
+    ]
+  },
+  "M54.50": {
+    "code": "M54.50",
+    "display": "Low back pain, unspecified",
+    "synonyms": [
+      "low back pain",
+      "acute low back pain",
+      "chronic low back pain",
+      "lumbar pain",
+      "lumbosacral pain",
+      "lumbago",
+      "acute on chronic low back pain"
+    ]
+  },
+  "M54.5": {
+    "code": "M54.5",
+    "display": "Low back pain",
+    "synonyms": [
+      "lumbosacral strain",
+      "acute lumbosacral strain",
+      "lumbar strain",
+      "lumbar back strain",
+      "back strain"
+    ]
+  },
+  "M51.26": {
+    "code": "M51.26",
+    "display": "Other intervertebral disc displacement, lumbar region",
+    "synonyms": [
+      "l4-l5 disc protrusion",
+      "l4-l5 disc herniation",
+      "herniated nucleus pulposus l4-l5",
+      "hnp l4-l5",
+      "lumbar disc protrusion",
+      "lumbar disc herniation",
+      "extruded disc fragment l4-l5",
+      "right paracentral disc protrusion l4-l5"
+    ]
+  },
+  "M51.36": {
+    "code": "M51.36",
+    "display": "Other intervertebral disc degeneration, lumbar region",
+    "synonyms": [
+      "degenerative disc disease lumbar",
+      "degenerative disc disease",
+      "lumbar ddd",
+      "early degenerative disc disease",
+      "disc space narrowing l4-l5",
+      "mild degenerative disc disease at l5-s1"
+    ]
+  },
+  "M47.816": {
+    "code": "M47.816",
+    "display": "Spondylosis without myelopathy or radiculopathy, lumbar region",
+    "synonyms": [
+      "facet arthropathy",
+      "lumbar facet arthropathy",
+      "facet arthropathy at l4-l5 and l5-s1",
+      "lumbar spondylosis",
+      "facet joint hypertrophy"
+    ]
+  },
+  "S30.0XXA": {
+    "code": "S30.0XXA",
+    "display": "Contusion of lower back and pelvis, initial encounter",
+    "synonyms": [
+      "contusion of back",
+      "lumbar contusion",
+      "back contusion",
+      "lower back contusion"
+    ]
+  },
+  "S13.4XXA": {
+    "code": "S13.4XXA",
+    "display": "Sprain of ligaments of cervical spine, initial encounter",
+    "synonyms": [
+      "cervical spine sprain",
+      "whiplash injury cervical spine"
+    ]
+  },
+  "S83.92XA": {
+    "code": "S83.92XA",
+    "display": "Sprain of unspecified ligament of left knee, initial encounter",
+    "synonyms": [
+      "left knee sprain",
+      "knee sprain left",
+      "sprain left knee"
+    ]
+  },
+  "R20.2": {
+    "code": "R20.2",
+    "display": "Paresthesia of skin",
+    "synonyms": [
+      "numbness",
+      "tingling",
+      "numbness and tingling",
+      "paresthesias",
+      "numbness dorsum right foot",
+      "right l5 dermatome numbness"
+    ]
+  },
+  "M62.81": {
+    "code": "M62.81",
+    "display": "Muscle weakness (generalized)",
+    "synonyms": [
+      "weakness",
+      "motor weakness",
+      "right ehl weakness",
+      "extensor hallucis longus weakness",
+      "right foot weakness"
+    ]
+  },
+  "G89.11": {
+    "code": "G89.11",
+    "display": "Acute pain due to trauma",
+    "synonyms": [
+      "acute post-traumatic pain",
+      "post-accident pain",
+      "acute pain following mvc"
+    ]
+  }
+}

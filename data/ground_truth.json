@@ -1,0 +1,50 @@
+{
+  "dataset_name": "Synthetic_Medical_Record_Exercise_Whitfield",
+  "total_pages": 22,
+  "pages": [
+    { "page": 1, "document_type": "EMS_REPORT", "is_duplicate": false, "is_blank": false },
+    { "page": 2, "document_type": "EMERGENCY_DEPARTMENT_RECORD", "is_duplicate": false, "is_blank": false },
+    { "page": 3, "document_type": "PHYSICIAN_NOTE", "is_duplicate": false, "is_blank": false },
+    { "page": 4, "document_type": "RADIOLOGY_REPORT", "is_duplicate": false, "is_blank": false },
+    { "page": 5, "document_type": "DISCHARGE_SUMMARY", "is_duplicate": false, "is_blank": false },
+    { "page": 6, "document_type": "PRIMARY_CARE_NOTE", "is_duplicate": false, "is_blank": false },
+    { "page": 7, "document_type": "PHYSICAL_THERAPY_EVALUATION", "is_duplicate": false, "is_blank": false },
+    { "page": 8, "document_type": "RADIOLOGY_REPORT", "is_duplicate": false, "is_blank": false },
+    { "page": 9, "document_type": "ORTHOPEDIC_SPINE_CONSULTATION", "is_duplicate": false, "is_blank": false },
+    { "page": 10, "document_type": "PHYSICAL_THERAPY_PROGRESS_NOTE", "is_duplicate": false, "is_blank": false },
+    { "page": 11, "document_type": "OPERATIVE_REPORT", "is_duplicate": false, "is_blank": false },
+    { "page": 12, "document_type": "PHYSICAL_THERAPY_PROGRESS_NOTE", "is_duplicate": true, "duplicate_of": 10, "is_blank": false },
+    { "page": 13, "document_type": "ORTHOPEDIC_SPINE_CONSULTATION", "is_duplicate": false, "is_blank": false },
+    { "page": 14, "document_type": "RADIOLOGY_REPORT", "is_duplicate": false, "is_blank": false },
+    { "page": 15, "document_type": "OPERATIVE_REPORT", "is_duplicate": false, "is_blank": false },
+    { "page": 16, "document_type": "DISCHARGE_SUMMARY", "is_duplicate": false, "is_blank": false, "is_conflicting_patient": true },
+    { "page": 17, "document_type": "PHYSICIAN_NOTE", "is_duplicate": false, "is_blank": false },
+    { "page": 18, "document_type": "HISTORICAL_MEDICAL_RECORD", "is_duplicate": false, "is_blank": false },
+    { "page": 19, "document_type": "MEDICATION_RECORD", "is_duplicate": false, "is_blank": false },
+    { "page": 20, "document_type": "BILLING_RECORD", "is_duplicate": false, "is_blank": false },
+    { "page": 21, "document_type": "EMPLOYER_WORK_STATUS", "is_duplicate": false, "is_blank": false },
+    { "page": 22, "document_type": "RECORDS_CERTIFICATION", "is_duplicate": false, "is_blank": false }
+  ],
+  "expected_patient": {
+    "canonical_name": "Marcus Whitfield",
+    "dob": "1987-03-14",
+    "gender": "male",
+    "mrn": "PCG-4471902"
+  },
+  "conflicts": [
+    {
+      "field": "patient.demographics",
+      "conflicting_value": "Marcus Whitmore (DOB 1979-09-22, MRN MER-778213)",
+      "canonical_value": "Marcus Whitfield (DOB 1987-03-14, MRN PCG-4471902)",
+      "source_page": 16,
+      "reason": "Mismatched patient demographics and knee condition in lumbar spine chart"
+    },
+    {
+      "field": "diagnostic.radiculopathy_laterality",
+      "conflicting_value": "Chronic Left L5 radiculopathy on EMG/NCS impression",
+      "canonical_value": "Right L5 radiculopathy & right lower extremity neurological deficits",
+      "source_page": 14,
+      "reason": "Laterality discordance between EMG impression (Left L5) and clinical/surgical records (Right L5)"
+    }
+  ]
+}
