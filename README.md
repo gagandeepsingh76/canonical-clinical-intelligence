@@ -10,7 +10,7 @@
 [![Vercel](https://img.shields.io/badge/Vercel-Deployed-000000?style=flat&logo=vercel&logoColor=white)](https://canonical-clinical-intelligence.vercel.app/)
 [![Render](https://img.shields.io/badge/Render-Backend_Live-46E3B7?style=flat&logo=render&logoColor=white)](https://canonical-clinical-intelligence.onrender.com/)
 
-[Live Demo](https://canonical-clinical-intelligence.vercel.app/) • [API Docs (Swagger UI)](https://canonical-clinical-intelligence.onrender.com/docs) • [GitHub Repository](https://github.com/gagandeepsingh76/canonical-clinical-intelligence)
+[Live Demo](https://canonical-clinical-intelligence.vercel.app/) • [API Docs (Swagger UI)](https://canonical-clinical-intelligence.onrender.com/docs) • [GitHub Repository](https://github.com/gagandeepsingh76/canonical-clinical-intelligence) • [AI Methodology (AI_USE.md)](./AI_USE.md)
 
 ---
 
@@ -21,6 +21,24 @@ This repository implements **Project 3 — Canonical Medical Record Structuring 
 In healthcare operations, legal discovery, and clinical data integration, medical records are routinely delivered as chaotic, concatenated multi-document PDF packages without unified structure, metadata, or terminology. The assignment requires building an automated, production-grade clinical pipeline to ingest these unstructured PDF bundles, segment sub-documents, extract granular clinical entities with page-level provenance, normalize terminology to healthcare ontology standards, resolve cross-document contradictions, generate schema-validated **HL7 FHIR R4** interoperability bundles, persist the structured output into a queryable relational store, and expose the entire record to live clinical query evaluation.
 
 This project delivers the complete pipeline from raw PDF ingestion to interactive web-based clinical querying and human-in-the-loop auditability.
+
+---
+
+## AI-Assisted Development Methodology
+
+This project was developed using an iterative, human-directed, AI-assisted engineering methodology. Rather than treating AI as a one-shot generator, AI assistance was integrated into a structured engineering lifecycle involving:
+
+- **Requirement Understanding & Decomposition**: Breaking down the Project 3 assessment specifications into modular pipeline stages and verified deliverables.
+- **Architecture & Pipeline Planning**: Designing data flows across ingestion, classification, segmentation, extraction, normalization, deduplication, conflict resolution, FHIR R4 construction, and relational persistence.
+- **Implementation Assistance**: Scaffolding service boilerplates, database schemas, Pydantic validation models, and vanilla JavaScript DOM controllers.
+- **Debugging & Root-Cause Analysis**: Investigating and fixing multiline regex overreach, legal watermark collisions, frontend API routing, and database foreign-key/idempotency handling.
+- **Test Generation & Verification**: Authoring unit, integration, and Playwright tests, followed by deterministic execution.
+- **Frontend Refinement**: Designing responsive layouts, visual state machine indicators, and the Query Console Copy feature.
+- **Documentation Assistance**: Compiling architectural specifications, failure post-mortems, and requirement traceability matrices.
+
+**Human Engineering Responsibility**: All architectural decisions, code reviews, failure diagnoses, test executions, database integrity verifications, and production deployments remained strictly under the direction, validation, and responsibility of the developer.
+
+📄 **For a detailed explanation of the AI-assisted development methodology, see [AI_USE.md](./AI_USE.md).**
 
 ---
 
@@ -490,11 +508,20 @@ canonical-clinical-intelligence/
 ├── output/
 │   ├── fhir_bundle.json               # Generated FHIR R4 bundle
 │   └── fhir_validation_report.json    # FHIR validation output report
+├── AI_USE.md                          # Human-directed AI-assisted development methodology
 ├── FAILURES.md                        # Engineering failure modes & learnings
 ├── render.yaml                        # Render cloud deployment blueprint
 ├── requirements.txt                   # Root Python dependencies
 └── vercel.json                        # Vercel frontend routing configuration
 ```
+
+### Project Documentation Artifacts
+
+| Document | Description |
+| :--- | :--- |
+| [`README.md`](./README.md) | Complete project documentation, architecture specification, benchmark showcase, and evaluator guide |
+| [`AI_USE.md`](./AI_USE.md) | Transparent explanation of the human-directed AI-assisted development methodology |
+| [`FAILURES.md`](./FAILURES.md) | Engineering failure modes, root causes, and resolutions encountered during development |
 
 ---
 
@@ -641,6 +668,7 @@ As documented in [`FAILURES.md`](FAILURES.md), several non-trivial edge cases we
 - **Live Demo Application**: [https://canonical-clinical-intelligence.vercel.app/](https://canonical-clinical-intelligence.vercel.app/)
 - **API Swagger Documentation**: [https://canonical-clinical-intelligence.onrender.com/docs](https://canonical-clinical-intelligence.onrender.com/docs)
 - **Backend Service Root**: [https://canonical-clinical-intelligence.onrender.com/](https://canonical-clinical-intelligence.onrender.com/)
+- **AI-Assisted Methodology**: [`AI_USE.md`](./AI_USE.md)
 
 ---
 
