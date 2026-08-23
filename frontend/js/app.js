@@ -1568,7 +1568,7 @@ function showSystemAuditInfo() {
       <div style="background:var(--bg-surface-subtle); padding:var(--space-3); border-radius:var(--radius-sm); border:1px solid var(--border-subtle); font-family:var(--font-mono); font-size:var(--text-xs);">
         Frontend: Static SPA (Vercel Ready)<br>
         Backend API: FastAPI / Uvicorn (Render Ready)<br>
-        Relational Store: Supabase PostgreSQL (Production) / SQLite (Local)<br>
+        Relational Store: Neon PostgreSQL (Production) / SQLite (Local)<br>
         Terminology Benchmark: 110 Cases Verified (100% Accuracy)
       </div>
     </div>

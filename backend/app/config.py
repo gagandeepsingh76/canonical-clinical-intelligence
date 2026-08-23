@@ -27,7 +27,7 @@ class Settings(BaseSettings):
 
     def __init__(self, **values):
         super().__init__(**values)
-        # Normalize postgres:// URLs (e.g. from Supabase or Render) to postgresql:// for SQLAlchemy
+        # Normalize postgres:// URLs (e.g. from Neon or Render) to postgresql:// for SQLAlchemy
         if self.DATABASE_URL.startswith("postgres://"):
             self.DATABASE_URL = self.DATABASE_URL.replace("postgres://", "postgresql://", 1)
 
