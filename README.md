@@ -7,10 +7,11 @@
 [![FHIR R4](https://img.shields.io/badge/HL7_FHIR-R4_Validated-firebrick?style=flat&logo=fire&logoColor=white)](https://hl7.org/fhir/R4/)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Neon_Cloud-336791?style=flat&logo=postgresql&logoColor=white)](https://neon.tech/)
 [![Pytest](https://img.shields.io/badge/Pytest-24%2F24_Passed-brightgreen?style=flat&logo=pytest&logoColor=white)](https://docs.pytest.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 [![Vercel](https://img.shields.io/badge/Vercel-Deployed-000000?style=flat&logo=vercel&logoColor=white)](https://canonical-clinical-intelligence.vercel.app/)
 [![Render](https://img.shields.io/badge/Render-Backend_Live-46E3B7?style=flat&logo=render&logoColor=white)](https://canonical-clinical-intelligence.onrender.com/)
 
-[Live Demo](https://canonical-clinical-intelligence.vercel.app/) • [API Docs (Swagger UI)](https://canonical-clinical-intelligence.onrender.com/docs) • [GitHub Repository](https://github.com/gagandeepsingh76/canonical-clinical-intelligence) • [AI Methodology (AI_USE.md)](./AI_USE.md)
+[Live Demo](https://canonical-clinical-intelligence.vercel.app/) • [API Docs (Swagger UI)](https://canonical-clinical-intelligence.onrender.com/docs) • [GitHub Repository](https://github.com/gagandeepsingh76/canonical-clinical-intelligence) • [AI Methodology (AI_USE.md)](./AI_USE.md) • [License (MIT)](./LICENSE)
 
 ---
 
@@ -510,6 +511,7 @@ canonical-clinical-intelligence/
 │   └── fhir_validation_report.json    # FHIR validation output report
 ├── AI_USE.md                          # Human-directed AI-assisted development methodology
 ├── FAILURES.md                        # Engineering failure modes & learnings
+├── LICENSE                            # MIT License
 ├── render.yaml                        # Render cloud deployment blueprint
 ├── requirements.txt                   # Root Python dependencies
 └── vercel.json                        # Vercel frontend routing configuration
@@ -522,6 +524,7 @@ canonical-clinical-intelligence/
 | [`README.md`](./README.md) | Complete project documentation, architecture specification, benchmark showcase, and evaluator guide |
 | [`AI_USE.md`](./AI_USE.md) | Transparent explanation of the human-directed AI-assisted development methodology |
 | [`FAILURES.md`](./FAILURES.md) | Engineering failure modes, root causes, and resolutions encountered during development |
+| [`LICENSE`](./LICENSE) | MIT License governing use, modification, and distribution |
 
 ---
 
@@ -669,6 +672,7 @@ As documented in [`FAILURES.md`](FAILURES.md), several non-trivial edge cases we
 - **API Swagger Documentation**: [https://canonical-clinical-intelligence.onrender.com/docs](https://canonical-clinical-intelligence.onrender.com/docs)
 - **Backend Service Root**: [https://canonical-clinical-intelligence.onrender.com/](https://canonical-clinical-intelligence.onrender.com/)
 - **AI-Assisted Methodology**: [`AI_USE.md`](./AI_USE.md)
+- **License**: [`LICENSE`](./LICENSE)
 
 ---
 
@@ -684,3 +688,11 @@ As documented in [`FAILURES.md`](FAILURES.md), several non-trivial edge cases we
 8. **Quantitative Benchmarking**: Evaluated against a Naive Baseline and a hand-curated 110-case terminology benchmark.
 9. **Production Cloud Deployment**: Live frontend on Vercel, live backend on Render, and cloud database on Neon PostgreSQL.
 10. **Comprehensive Test Suite**: 24 automated unit and integration tests passing in Pytest.
+
+---
+
+## License
+
+This project is licensed under the MIT License.
+
+See the [LICENSE](./LICENSE) file for the full license text.
