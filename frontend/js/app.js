@@ -1213,6 +1213,8 @@ function downloadFHIR() {
 /* ==========================================================================
    13. CLINICAL QUERY CONSOLE
    ========================================================================== */
+let currentQueryJson = '';
+
 async function executeQuery(queryName, param = null) {
   const resultContainer = document.getElementById('query-results-area');
   resultContainer.innerHTML = `<div class="card" style="text-align:center; padding:var(--space-6);"><p style="font-size:var(--text-sm);">Executing clinical query against database...</p></div>`;
@@ -1225,18 +1227,80 @@ async function executeQuery(queryName, param = null) {
     });
     if (!res.ok) throw new Error("Query execution failed");
     const resData = await res.json();
+    const formattedJson = JSON.stringify(resData.results, null, 2);
+    currentQueryJson = formattedJson;
 
     resultContainer.innerHTML = `
       <div class="card">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: var(--space-4); border-bottom: 1px solid var(--border-subtle); padding-bottom: var(--space-3);">
           <div class="card-title-lg" style="color:var(--accent-orange);"><span>Query Output:</span> ${resData.query}</div>
-          <span class="badge badge-emerald">Live Database Results</span>
+          <div style="display:flex; align-items:center; gap:var(--space-2);">
+            <span class="badge badge-emerald">Live Database Results</span>
+            <button class="btn btn-secondary btn-sm" id="copy-query-btn" onclick="copyQueryOutput()">
+              <svg class="icon icon-xs" viewBox="0 0 24 24">
+                <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+              </svg>
+              <span>Copy</span>
+            </button>
+          </div>
         </div>
-        <pre class="code-block">${escapeHtml(JSON.stringify(resData.results, null, 2))}</pre>
+        <pre id="query-output-pre" class="code-block">${escapeHtml(formattedJson)}</pre>
       </div>
     `;
   } catch (e) {
     resultContainer.innerHTML = `<div class="card"><p style="color:var(--accent-rose); font-size:var(--text-sm);">Query error: ${e.message}</p></div>`;
+  }
+}
+
+function copyQueryOutput() {
+  const pre = document.getElementById('query-output-pre');
+  const jsonText = currentQueryJson || (pre ? pre.textContent : '');
+  if (!jsonText) return;
+
+  const btn = document.getElementById('copy-query-btn');
+  const label = btn ? (btn.querySelector('span') || btn) : null;
+  const originalLabel = 'Copy';
+
+  const onSuccess = () => {
+    if (label) {
+      label.textContent = 'Copied ✓';
+      setTimeout(() => {
+        label.textContent = originalLabel;
+      }, 2000);
+    }
+  };
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(jsonText)
+      .then(onSuccess)
+      .catch((err) => {
+        console.warn('Clipboard API writeText failed, using fallback:', err);
+        fallbackCopyText(jsonText, onSuccess);
+      });
+  } else {
+    fallbackCopyText(jsonText, onSuccess);
+  }
+}
+
+function fallbackCopyText(text, onSuccess) {
+  try {
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.style.position = 'fixed';
+    textarea.style.left = '-9999px';
+    textarea.style.top = '-9999px';
+    textarea.style.opacity = '0';
+    document.body.appendChild(textarea);
+    textarea.focus();
+    textarea.select();
+    const successful = document.execCommand('copy');
+    document.body.removeChild(textarea);
+    if (successful && onSuccess) {
+      onSuccess();
+    }
+  } catch (e) {
+    console.error('Fallback copy to clipboard failed:', e);
   }
 }
 
